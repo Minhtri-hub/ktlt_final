@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Trí",
+        "age": 18,
+        "address": "Q.TânPhu"
+    },
+    {
+        "id": 2,
+        "name": "Nhi",
+        "age": 15,
+        "address": "Q.11"
+    },
+    {
+        "id": 3,
+        "name": "Hòa",
+        "age": 11,
+        "address": "Q.12"
+    },
+    {
+        "id": 4,
+        "name": "Tèo",
+        "age": 16,
+        "address": "Q.5"
+    }
+]
