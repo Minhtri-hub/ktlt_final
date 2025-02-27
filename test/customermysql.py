@@ -1,5 +1,5 @@
 import json
-from data.connect import conn
+from data.mysql_connector import conn
 
 cursor = conn.cursor()
 
@@ -19,7 +19,7 @@ for item in dataset:
     })
 
 # Lưu dữ liệu vào file JSON
-json_file_path = "customer_data.json"
+json_file_path = "../dataset/customer_data.json"
 with open(json_file_path, "w", encoding="utf-8") as json_file:
     json.dump(data_list, json_file, indent=4, ensure_ascii=False)
 
