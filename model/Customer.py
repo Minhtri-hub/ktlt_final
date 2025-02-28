@@ -1,6 +1,6 @@
 class Customer:
     def __init__(self,customerid=None,customername=None,quantity=None,age=None,info=None,email=None ):
-        self.customeris=customerid
+        self.customerid=customerid
         self.customername=customername
         self.quantity=quantity
         self.age=age
