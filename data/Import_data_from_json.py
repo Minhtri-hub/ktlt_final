@@ -16,8 +16,8 @@ def get_data_from_json(file_name):
             data = json.load(json_file)
         return data
     except FileNotFoundError:
-        print(f"❌ Lỗi: Không tìm thấy file {file_name}!")
+        print(f"Lỗi: Không tìm thấy file {file_name}!")
         return []
     except json.JSONDecodeError:
-        print(f"❌ Lỗi: File {file_name} bị lỗi hoặc không hợp lệ!")
+        print(f"Lỗi: File {file_name} bị lỗi hoặc không hợp lệ!")
         return []
