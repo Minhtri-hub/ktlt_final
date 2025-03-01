@@ -1,0 +1,20 @@
+[
+    {
+        "EmployeeId": 1,
+        "EmployeeName": "Đức Tài",
+        "EmployeeUsername": "tai01",
+        "EmployeePass": "@123"
+    },
+    {
+        "EmployeeId": 2,
+        "EmployeeName": "Thanh Tâm",
+        "EmployeeUsername": "tam02",
+        "EmployeePass": "@123"
+    },
+    {
+        "EmployeeId": 3,
+        "EmployeeName": "Mỹ Tâm",
+        "EmployeeUsername": "tam03",
+        "EmployeePass": "@123"
+    }
+]
