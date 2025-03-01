@@ -15,15 +15,15 @@ class MainWindowEx(Ui_MainWindow):
             exit(1)
 
         # Kết nối sự kiện nút đăng nhập (giả sử bạn có QPushButton tên btnLogin)
-        self.pushButton.clicked.connect(self.handle_login)
+        self.pushButton_Login.clicked.connect(self.handle_login)
 
     def showWindow(self):
         self.MainWindow.show()
 
     def handle_login(self):
         # Lấy username và password từ QLineEdit (giả sử tên các trường là lineEditUsername và lineEditPassword)
-        username = self.lineEditUsername.text().strip()
-        password = self.lineEditPassword.text().strip()
+        username = self.lineEditEmail.text().strip()
+        password = self.lineEdit_Password.text().strip()
 
         user = self.login_customer(username, password)
         if user:
