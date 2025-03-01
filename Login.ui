@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1110</width>
+    <height>855</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>20</y>
+      <width>661</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>-30</y>
+       <width>461</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#00007f;&quot;&gt;Đăng Nhập&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>170</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>250</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>350</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 0, 127);
+QLabel {
+    border-radius: 50px; /* Bo góc tròn */
+    border: 2px solid black; /* Viền */
+    background-color: lightblue; /* Màu nền */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Đăng nhập &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>430</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#00007f;&quot;&gt;Hoặc&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>500</y>
+       <width>55</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>480</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>550</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>580</y>
+       <width>531</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tôi đã đọc và đồng ý các Chính sách bảo mật, Điều khoản &amp; Điều kiện của PIZZA 5P'S</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1110</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
