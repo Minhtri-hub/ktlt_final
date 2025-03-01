@@ -1,31 +1,43 @@
 from UILogin.Login import Ui_MainWindow
 from data.Import_data_from_json import get_data_from_json
+from PyQt6.QtWidgets import QMessageBox
 
 
 class MainWindowEx(Ui_MainWindow):
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
-        self.Login_customer()
+
+        # Tải dữ liệu khách hàng từ file JSON và lưu vào thuộc tính
+        self.customers = get_data_from_json("customer_data.json")
+        if not self.customers:
+            QMessageBox.critical(MainWindow, "Lỗi", "Không có dữ liệu khách hàng. Kiểm tra file customer_data.json!")
+            exit(1)
+
+        # Kết nối sự kiện nút đăng nhập (giả sử bạn có QPushButton tên btnLogin)
+        self.pushButton.clicked.connect(self.handle_login)
 
     def showWindow(self):
         self.MainWindow.show()
 
-    def Login_customer(self,customers,username,password):
-        for customer in customers:
-            if customer.get("username") == username and customer.get("password")==password:
-                return customer
-        if __name__=='__main__':
-            customers=get_data_from_json("customer_data.json")
-            if not customers:
-                print("Không có dữ liệu khách hàng. Kiểm tra file customers.json!")
-                exit(1)
-            input_username = input("Nhập username: ").strip()
-            input_password = input("Nhập password: ").strip()
+    def handle_login(self):
+        # Lấy username và password từ QLineEdit (giả sử tên các trường là lineEditUsername và lineEditPassword)
+        username = self.lineEditUsername.text().strip()
+        password = self.lineEditPassword.text().strip()
 
-            user = login(customers, input_username, input_password)
-            if user:
-                print(f"Đăng nhập thành công! Chào mừng {user.get('name')}")
-                    # Tại đây bạn có thể chuyển qua chức năng khác, mở cửa sổ quản lý,...
-            else:
-                print("Tên đăng nhập hoặc mật khẩu không đúng!")
+        user = self.login_customer(username, password)
+        if user:
+            QMessageBox.information(self.MainWindow, "Thành công",
+                                    f"Đăng nhập thành công! Chào mừng {user.get('name')}")
+            # Tại đây bạn có thể chuyển qua cửa sổ quản lý, ví dụ:
+            # self.MainWindow.close()
+            # mở MainWindowManagement
+        else:
+            QMessageBox.warning(self.MainWindow, "Lỗi", "Tên đăng nhập hoặc mật khẩu không đúng!")
+
+    def login_customer(self, username, password):
+        # So sánh thông tin đăng nhập với dữ liệu khách hàng đã tải
+        for customer in self.customers:
+            if customer.get("username") == username and customer.get("password") == password:
+                return customer
+        return None
