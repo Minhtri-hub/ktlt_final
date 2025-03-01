@@ -1,26 +1,47 @@
 [
     {
         "id": 1,
-        "name": "Trí",
+        "name": "Minh Trí",
         "age": 18,
-        "address": "Q.TânPhu"
+        "address": "Q.TânPhu",
+        "username": "mtri18",
+        "password": "123",
+        "phone_number": "0903585672"
     },
     {
         "id": 2,
-        "name": "Nhi",
+        "name": "Yến Nhi",
         "age": 15,
-        "address": "Q.11"
+        "address": "Q.11",
+        "username": "ynhi15",
+        "password": "456",
+        "phone_number": "0902587741"
     },
     {
         "id": 3,
-        "name": "Hòa",
+        "name": "Quỳnh Nhi",
         "age": 11,
-        "address": "Q.12"
+        "address": "Q.12",
+        "username": "qnhi11",
+        "password": "789",
+        "phone_number": "0906853321"
     },
     {
         "id": 4,
-        "name": "Tèo",
+        "name": "Mỹ Hòa",
         "age": 16,
-        "address": "Q.5"
+        "address": "Q.5",
+        "username": "mhoa16",
+        "password": "101",
+        "phone_number": "0903215462"
+    },
+    {
+        "id": 5,
+        "name": "Kim Khánh",
+        "age": 10,
+        "address": "Q6",
+        "username": "kkhanh10",
+        "password": "113",
+        "phone_number": "0909856325"
     }
 ]
