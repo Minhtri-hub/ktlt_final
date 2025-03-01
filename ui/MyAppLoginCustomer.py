@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow
-from UILogin.LoginEx import MainWindowEx  # Giả sử đây là lớp giao diện do pyuic6 tạo ra
+from UILogin.LoginCustomerEx import MainWindowEx  # Giả sử đây là lớp giao diện do pyuic6 tạo ra
 
 app = QApplication([])
 
