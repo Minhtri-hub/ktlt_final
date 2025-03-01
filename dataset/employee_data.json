@@ -3,18 +3,32 @@
         "EmployeeId": 1,
         "EmployeeName": "Đức Tài",
         "EmployeeUsername": "tai01",
-        "EmployeePass": "@123"
+        "EmployeePass": "@123",
+        "hire_date": "2019-06-20",
+        "working_years": 5
     },
     {
         "EmployeeId": 2,
         "EmployeeName": "Thanh Tâm",
         "EmployeeUsername": "tam02",
-        "EmployeePass": "@123"
+        "EmployeePass": "@123",
+        "hire_date": "2022-08-22",
+        "working_years": 2
     },
     {
         "EmployeeId": 3,
         "EmployeeName": "Mỹ Tâm",
         "EmployeeUsername": "tam03",
-        "EmployeePass": "@123"
+        "EmployeePass": "@123",
+        "hire_date": "2023-12-12",
+        "working_years": 1
+    },
+    {
+        "EmployeeId": 4,
+        "EmployeeName": "Sơn Tùng",
+        "EmployeeUsername": "son01",
+        "EmployeePass": "@123",
+        "hire_date": "2021-02-01",
+        "working_years": 4
     }
 ]
