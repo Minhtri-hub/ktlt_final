@@ -15,7 +15,10 @@ for item in dataset:
         "id": item[0],
         "name": item[1],
         "age": item[2],
-        "address": item[3]
+        "address": item[3],
+        "username": item[4],
+        "password": item[5],
+        "phone_number":item[6]
     })
 
 # Lưu dữ liệu vào file JSON
