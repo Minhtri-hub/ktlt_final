@@ -61,7 +61,7 @@
       <string>* Địa chỉ Email</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_Password">
+    <widget class="QLineEdit" name="lineEditPassword">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -129,7 +129,7 @@
       <string>Đăng nhập bằng số điện thoại</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_Google">
+    <widget class="QPushButton" name="pushButtonGoogle">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -146,7 +146,7 @@
        <normaloff>C:/Users/HUYNHNHI/Downloads/2993685_brand_brands_google_logo_logos_icon.png</normaloff>C:/Users/HUYNHNHI/Downloads/2993685_brand_brands_google_logo_logos_icon.png</iconset>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_Login">
+    <widget class="QPushButton" name="pushButtonLogin">
      <property name="geometry">
       <rect>
        <x>210</x>
