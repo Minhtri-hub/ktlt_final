@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\ktlt_final\UILogin\Dangki.ui'
+# Form implementation generated from reading uiManagement file 'D:\ktlt_final\UILogin\Dangki.uiManagement'
 #
 # Created by: PyQt6 UI code generator 6.7.1
 #
