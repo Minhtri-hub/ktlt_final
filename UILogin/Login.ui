@@ -20,8 +20,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>10</y>
+      <x>190</x>
+      <y>30</y>
       <width>661</width>
       <height>761</height>
      </rect>
@@ -45,7 +45,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#00007f;&quot;&gt;Đăng Nhập&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditEmail">
+    <widget class="QLineEdit" name="lineEdiUsername">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -60,8 +60,14 @@
      <property name="accessibleDescription">
       <string>* Địa chỉ Email</string>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(118, 118, 118);</string>
+     </property>
+     <property name="text">
+      <string>*User Name</string>
+     </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditPassword">
+    <widget class="QLineEdit" name="lineEdit_Password">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -72,6 +78,12 @@
      </property>
      <property name="accessibleDescription">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#888888;&quot;&gt;* Mật Khẩu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(121, 121, 121);</string>
+     </property>
+     <property name="text">
+      <string>* Password</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
@@ -129,7 +141,7 @@
       <string>Đăng nhập bằng số điện thoại</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButtonGoogle">
+    <widget class="QPushButton" name="pushButton_Google">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -146,7 +158,7 @@
        <normaloff>C:/Users/HUYNHNHI/Downloads/2993685_brand_brands_google_logo_logos_icon.png</normaloff>C:/Users/HUYNHNHI/Downloads/2993685_brand_brands_google_logo_logos_icon.png</iconset>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButtonLogin">
+    <widget class="QPushButton" name="pushButton_Login">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -162,6 +174,52 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Đăng nhập</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>660</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Chưa có tài khoản ?</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtoDangki">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>660</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(0, 0, 127);
+color: rgb(0, 0, 127);</string>
+     </property>
+     <property name="text">
+      <string>Đăng kí</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonQuenmatkhau">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>690</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 127);</string>
+     </property>
+     <property name="text">
+      <string>Quên mật khẩu</string>
      </property>
     </widget>
    </widget>
