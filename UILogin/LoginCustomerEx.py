@@ -12,6 +12,7 @@ class LoginCustomerEx(Ui_MainWindow):
         self.setupSignalAndSlot()
         self.checkboxisChecked()
 
+
     def __init__(self):
         self.customers = get_data_from_json("customer_data.json")
         if not self.customers:
@@ -21,6 +22,7 @@ class LoginCustomerEx(Ui_MainWindow):
     def setupSignalAndSlot(self):
         self.pushButtonLogin.clicked.connect(self.handle_login)
         self.checkBox.stateChanged.connect(self.checkboxisChecked)
+        self.pushButtonSignUp.clicked.connect(self.signupisChecked)
 
     def showWindow(self):
         self.MainWindow.show()
@@ -56,6 +58,5 @@ class LoginCustomerEx(Ui_MainWindow):
         else:
             QMessageBox.warning(self.MainWindow, "Lỗi", "Tên đăng nhập hoặc mật khẩu không đúng!")
 
-
-
+    def signupisChecked(self):
 
