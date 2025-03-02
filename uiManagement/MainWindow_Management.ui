@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
+    <width>900</width>
     <height>530</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -19,7 +22,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>881</width>
+      <width>901</width>
       <height>41</height>
      </rect>
     </property>
@@ -31,7 +34,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 170, 0);</string>
+     <string notr="true">background-color: rgb(106, 141, 255);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Booking Management&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -40,7 +43,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>81</y>
       <width>571</width>
       <height>111</height>
@@ -54,12 +57,13 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(127, 255, 189);</string>
+     <string notr="true">background-color: rgb(112, 177, 255);
+</string>
     </property>
     <property name="title">
      <string>Booking Details:</string>
     </property>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="lineEditTable">
      <property name="geometry">
       <rect>
        <x>362</x>
@@ -75,7 +79,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="lineEditDate">
      <property name="geometry">
       <rect>
        <x>362</x>
@@ -145,7 +149,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Date:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="lineEditTime">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -161,7 +165,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_8">
+    <widget class="QLineEdit" name="lineEditRegion">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -199,7 +203,7 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>200</y>
       <width>571</width>
       <height>161</height>
@@ -213,7 +217,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);</string>
+     <string notr="true">background-color: rgb(12, 159, 227);</string>
     </property>
     <property name="title">
      <string>Customer Information:</string>
@@ -272,7 +276,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Last Name:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="lineEdit_FName">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -288,7 +292,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="lineEdit_Note">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -301,7 +305,7 @@
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_7">
+    <widget class="QLineEdit" name="lineEdit_LName">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -317,7 +321,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_11">
+    <widget class="QLineEdit" name="lineEdit_Mobile">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -348,7 +352,7 @@
       </font>
      </property>
      <property name="autoFillBackground">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true"/>
@@ -381,7 +385,7 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Email:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_10">
+    <widget class="QLineEdit" name="lineEdit_Email">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -401,14 +405,14 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>370</y>
       <width>571</width>
       <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(106, 255, 188);</string>
+     <string notr="true">background-color: rgb(143, 222, 255);</string>
     </property>
     <property name="title">
      <string/>
@@ -426,6 +430,9 @@
       <font>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Employee Name:</string>
@@ -449,13 +456,13 @@
       <string>Shift:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="lineEditShift">
      <property name="geometry">
       <rect>
-       <x>382</x>
+       <x>380</x>
        <y>20</y>
        <width>101</width>
-       <height>20</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -465,7 +472,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_9">
+    <widget class="QLineEdit" name="lineEdit_EmpName">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -481,10 +488,10 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pushButtonClear">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>260</x>
        <y>60</y>
        <width>71</width>
        <height>31</height>
@@ -499,17 +506,17 @@
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Delete</string>
+      <string>Clear</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/ic_delete.png</normaloff>../image/ic_delete.png</iconset>
+       <normaloff>image/ic_delete.png</normaloff>image/ic_delete.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButtonExit">
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>370</x>
        <y>60</y>
        <width>71</width>
        <height>31</height>
@@ -528,10 +535,10 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/ic_exit.png</normaloff>../image/ic_exit.png</iconset>
+       <normaloff>image/ic_exit.png</normaloff>image/ic_exit.png</iconset>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="pushButton_Save">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -549,20 +556,20 @@
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Update</string>
+      <string>Save</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../image/ic_update.png</normaloff>../image/ic_update.png</iconset>
+       <normaloff>image/ic_save3.png</normaloff>image/ic_save3.png</iconset>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>50</y>
-      <width>871</width>
+      <width>861</width>
       <height>21</height>
      </rect>
     </property>
@@ -573,11 +580,14 @@
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>600</x>
       <y>80</y>
       <width>281</width>
       <height>401</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
      <string/>
@@ -589,14 +599,31 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>880</width>
+     <width>900</width>
      <height>18</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>lineEditRegion</tabstop>
+  <tabstop>lineEditTable</tabstop>
+  <tabstop>lineEditTime</tabstop>
+  <tabstop>lineEditDate</tabstop>
+  <tabstop>lineEdit_FName</tabstop>
+  <tabstop>lineEdit_Mobile</tabstop>
+  <tabstop>lineEdit_LName</tabstop>
+  <tabstop>lineEdit_Email</tabstop>
+  <tabstop>lineEdit_Note</tabstop>
+  <tabstop>lineEdit_EmpName</tabstop>
+  <tabstop>lineEditShift</tabstop>
+  <tabstop>pushButtonClear</tabstop>
+  <tabstop>pushButtonExit</tabstop>
+ </tabstops>
+ <resources>
+  <include location="image/background.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButtonExit</sender>
