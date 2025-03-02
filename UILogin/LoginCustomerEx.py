@@ -4,7 +4,7 @@ from data.Import_data_from_json import get_data_from_json
 from PyQt6.QtWidgets import QMessageBox
 
 
-class MainWindowLoginEx(Ui_MainWindow):
+class LoginCustomerEx(Ui_MainWindow):
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
