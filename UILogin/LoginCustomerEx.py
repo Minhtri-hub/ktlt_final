@@ -8,29 +8,34 @@ class LoginCustomerEx(Ui_MainWindow):
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
+        self.handle_login()
+        self.setupSignalAndSlot()
+        self.checkboxisChecked()
 
-        # Tải dữ liệu khách hàng từ file JSON và lưu vào thuộc tính
+    def __init__(self):
         self.customers = get_data_from_json("customer_data.json")
         if not self.customers:
             QMessageBox.critical(MainWindow, "Lỗi", "Không có dữ liệu khách hàng. Kiểm tra file customer_data.json!")
             exit(1)
 
-        # Kết nối sự kiện nút đăng nhập (giả sử bạn có QPushButton tên btnLogin)
-        self.pushButton_Login.clicked.connect(self.handle_login)
+    def setupSignalAndSlot(self):
+        self.pushButtonLogin.clicked.connect(self.handle_login)
+        self.checkBox.stateChanged.connect(self.checkboxisChecked)
 
     def showWindow(self):
         self.MainWindow.show()
 
-    def handle_login(self):
-        username = self.lineEditEmail.text().strip()
-        password = self.lineEdit_Password.text().strip()
+    def checkboxisChecked(self):
+        self.pushButtonLogin.setEnabled(self.checkBox.isChecked())
 
-        # Kiểm tra danh sách khách hàng đã có chưa
+    def handle_login(self):
+        username = self.lineEditUsername.text().strip()
+        password = self.lineEditPassword.text().strip()
+
         if not getattr(self, "customers") or not self.customers:
             QMessageBox.warning(self.MainWindow, "Lỗi", "Không có dữ liệu khách hàng!")
             return
 
-        # Kiểm tra username & password
         user = None
         for customer in self.customers:
             if customer.get("username") == username and customer.get("password") == password:
@@ -50,5 +55,7 @@ class LoginCustomerEx(Ui_MainWindow):
             self.MainWindow.close()
         else:
             QMessageBox.warning(self.MainWindow, "Lỗi", "Tên đăng nhập hoặc mật khẩu không đúng!")
+
+
 
 

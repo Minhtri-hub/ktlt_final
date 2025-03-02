@@ -6,7 +6,8 @@
         "address": "Q.TânPhu",
         "username": "mtri18",
         "password": "123",
-        "phone_number": "0903585672"
+        "phone_number": "0903585672",
+        "email": "minhtri@gmail.com"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "address": "Q.11",
         "username": "ynhi15",
         "password": "456",
-        "phone_number": "0902587741"
+        "phone_number": "0902587741",
+        "email": "yennhi@gmail.com"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "address": "Q.12",
         "username": "qnhi11",
         "password": "789",
-        "phone_number": "0906853321"
+        "phone_number": "0906853321",
+        "email": "quynhnhi@gmail.com"
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "address": "Q.5",
         "username": "mhoa16",
         "password": "101",
-        "phone_number": "0903215462"
+        "phone_number": "0903215462",
+        "email": "myhoa@gmail.com"
     },
     {
         "id": 5,
@@ -42,6 +46,7 @@
         "address": "Q6",
         "username": "kkhanh10",
         "password": "113",
-        "phone_number": "0909856325"
+        "phone_number": "0909856325",
+        "email": "kimkhanh@gmail.com"
     }
 ]

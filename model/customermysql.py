@@ -18,7 +18,8 @@ for item in dataset:
         "address": item[3],
         "username": item[4],
         "password": item[5],
-        "phone_number":item[6]
+        "phone_number":item[6],
+        "email":item[7]
     })
 
 # Lưu dữ liệu vào file JSON
