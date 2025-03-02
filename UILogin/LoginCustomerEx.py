@@ -1,9 +1,10 @@
 from UILogin.Login import Ui_MainWindow
+from UiBooking.BookingInformationEx import BookingWindowEx
 from data.Import_data_from_json import get_data_from_json
 from PyQt6.QtWidgets import QMessageBox
 
 
-class MainWindowEx(Ui_MainWindow):
+class MainWindowLoginEx(Ui_MainWindow):
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
@@ -21,23 +22,33 @@ class MainWindowEx(Ui_MainWindow):
         self.MainWindow.show()
 
     def handle_login(self):
-        # Lấy username và password từ QLineEdit (giả sử tên các trường là lineEditUsername và lineEditPassword)
         username = self.lineEditEmail.text().strip()
         password = self.lineEdit_Password.text().strip()
 
-        user = self.login_customer(username, password)
+        # Kiểm tra danh sách khách hàng đã có chưa
+        if not getattr(self, "customers") or not self.customers:
+            QMessageBox.warning(self.MainWindow, "Lỗi", "Không có dữ liệu khách hàng!")
+            return
+
+        # Kiểm tra username & password
+        user = None
+        for customer in self.customers:
+            if customer.get("username") == username and customer.get("password") == password:
+                user = customer
+                break  # Dừng vòng lặp khi tìm thấy user
+
         if user:
             QMessageBox.information(self.MainWindow, "Thành công",
                                     f"Đăng nhập thành công! Chào mừng {user.get('name')}")
-            # Tại đây bạn có thể chuyển qua cửa sổ quản lý, ví dụ:
-            # self.MainWindow.close()
-            # mở MainWindowManagement
+            print(f"Đăng nhập thành công! Chào mừng {user.get('name')}")
+
+            # Mở cửa sổ Booking
+            self.booking_window = BookingWindowEx()
+            self.booking_window.show()
+
+            # Đóng cửa sổ đăng nhập
+            self.MainWindow.close()
         else:
             QMessageBox.warning(self.MainWindow, "Lỗi", "Tên đăng nhập hoặc mật khẩu không đúng!")
 
-    def login_customer(self, username, password):
-        # So sánh thông tin đăng nhập với dữ liệu khách hàng đã tải
-        for customer in self.customers:
-            if customer.get("username") == username and customer.get("password") == password:
-                return customer
-        return None
+
