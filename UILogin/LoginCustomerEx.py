@@ -59,4 +59,6 @@ class LoginCustomerEx(Ui_MainWindow):
             QMessageBox.warning(self.MainWindow, "Lỗi", "Tên đăng nhập hoặc mật khẩu không đúng!")
 
     def signupisChecked(self):
+        pass
+
 
