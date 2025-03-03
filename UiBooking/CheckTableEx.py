@@ -1,12 +1,20 @@
 from PyQt6.QtWidgets import QMainWindow
+from UiBooking.CheckTable import Ui_MainWindow
+from UiBooking.BookingInformationEx import BookingInformationEx
 
-from UiBooking.CheckTable import Ui_MainWindow # Import giao diện đặt bàn
-
-class CheckTableEx(QMainWindow):
+class CheckTableEx(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
+        self.setupUi(self)
+        self.setupSignalAndSlot()
 
     def showWindow(self):
-        self.MainWindow.show()
+        self.show()
+
+    def setupSignalAndSlot(self):
+        self.pushButtonCheckAvailability.clicked.connect(self.openBookingInformation)
+
+    def openBookingInformation(self):
+        self.booking_window = BookingInformationEx()
+        self.booking_window.showWindow()
+        self.close()

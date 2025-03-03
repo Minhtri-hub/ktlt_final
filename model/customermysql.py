@@ -3,12 +3,11 @@ from data.mysql_connector import conn
 
 cursor = conn.cursor()
 
-# Truy vấn dữ liệu từ bảng customer
+
 sql = "SELECT * FROM customer"
 cursor.execute(sql)
 dataset = cursor.fetchall()
 
-# Chuyển đổi dữ liệu thành danh sách các dict
 data_list = []
 for item in dataset:
     data_list.append({
