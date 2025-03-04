@@ -16,5 +16,5 @@ class CheckTableEx(QMainWindow, Ui_MainWindow):
 
     def openBookingInformation(self):
         self.booking_window = BookingInformationEx()
-        self.booking_window.showWindow()
+        self.booking_window.show()
         self.close()

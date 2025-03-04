@@ -29,14 +29,14 @@
      </font>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string/>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>190</y>
-       <width>127</width>
+       <width>131</width>
        <height>251</height>
       </rect>
      </property>
@@ -244,19 +244,6 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="labelSeatingArea">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>10</y>
-        <width>341</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
@@ -330,7 +317,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string/>
     </property>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
@@ -371,7 +358,7 @@
      <x>0</x>
      <y>0</y>
      <width>709</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
