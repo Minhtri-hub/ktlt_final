@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>10</y>
       <width>551</width>
       <height>581</height>
@@ -27,6 +27,9 @@
      <font>
       <pointsize>13</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 237, 213);</string>
     </property>
     <property name="title">
      <string>GroupBox</string>
@@ -43,6 +46,12 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Nirmala Text Semilight</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>First Name: </string>
         </property>
@@ -50,6 +59,12 @@
       </item>
       <item>
        <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Nirmala Text Semilight</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Last Name:</string>
         </property>
@@ -57,6 +72,12 @@
       </item>
       <item>
        <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Nirmala Text Semilight</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Email:</string>
         </property>
@@ -64,6 +85,12 @@
       </item>
       <item>
        <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Nirmala Text Semilight</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Mobile:</string>
         </property>
@@ -71,6 +98,12 @@
       </item>
       <item>
        <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Nirmala Text Semilight</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Special Note:</string>
         </property>
@@ -81,11 +114,15 @@
     <widget class="QLineEdit" name="lineEditFirstName">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>200</y>
        <width>371</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 0, 0);</string>
      </property>
      <property name="text">
       <string/>
@@ -97,21 +134,29 @@
     <widget class="QLineEdit" name="lineEditLastName">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>250</y>
        <width>371</width>
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 0, 0);</string>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEditEmail">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>300</y>
        <width>371</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 0, 0);</string>
      </property>
      <property name="placeholderText">
       <string>...@gmail.com</string>
@@ -120,11 +165,15 @@
     <widget class="QLineEdit" name="lineEditMobile">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>350</y>
        <width>371</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 0, 0);</string>
      </property>
      <property name="placeholderText">
       <string>+84</string>
@@ -133,11 +182,15 @@
     <widget class="QLineEdit" name="lineEditSpecialNote">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>400</y>
        <width>371</width>
        <height>101</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(85, 0, 0);</string>
      </property>
      <property name="placeholderText">
       <string>e.g. Anniversary, birthday, allergies,...</string>
@@ -167,11 +220,12 @@
      </property>
      <property name="font">
       <font>
+       <family>Nirmala UI Semilight</family>
        <pointsize>9</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Yes! I want to receive newsletter about CieL menus, promotions and events.</string>
+      <string>Yes! I want to receive newsletter about Lotus menus, promotions and events.</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBoxConfirmBooking">
@@ -185,6 +239,7 @@
      </property>
      <property name="font">
       <font>
+       <family>Nirmala Text Semilight</family>
        <pointsize>9</pointsize>
       </font>
      </property>
@@ -195,19 +250,26 @@
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>20</y>
-       <width>231</width>
-       <height>61</height>
+       <x>0</x>
+       <y>0</y>
+       <width>561</width>
+       <height>81</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>20</pointsize>
+       <family>Bell MT</family>
+       <pointsize>72</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 54, 0);
+</string>
+     </property>
      <property name="text">
-      <string>5Ps</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#faf2ea;&quot;&gt;LOTUS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QFrame" name="frame">
@@ -238,7 +300,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>images/ic_table.png</pixmap>
+       <pixmap>C:/Users/ADMIN/.designer/backup/images/ic_table.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -256,6 +318,9 @@
       <property name="text">
        <string/>
       </property>
+      <property name="pixmap">
+       <pixmap>C:/Users/ADMIN/Downloads/8508747_eating_placesrestaurant_table_restaurant_food_icon.png</pixmap>
+      </property>
      </widget>
      <widget class="QLabel" name="label_10">
       <property name="geometry">
@@ -270,7 +335,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>images/ic_people.png</pixmap>
+       <pixmap>C:/Users/ADMIN/.designer/backup/images/ic_people.png</pixmap>
       </property>
      </widget>
      <widget class="QLabel" name="label1">
@@ -286,7 +351,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>images/ic_calendar.png</pixmap>
+       <pixmap>C:/Users/ADMIN/.designer/backup/images/ic_calendar.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>false</bool>
@@ -304,6 +369,9 @@
       <property name="text">
        <string/>
       </property>
+      <property name="pixmap">
+       <pixmap>C:/Users/ADMIN/Downloads/309041_users_group_people_icon.png</pixmap>
+      </property>
      </widget>
      <widget class="QLabel" name="labelDateTime">
       <property name="geometry">
@@ -317,17 +385,47 @@
       <property name="text">
        <string/>
       </property>
+      <property name="pixmap">
+       <pixmap>C:/Users/ADMIN/Downloads/8664801_calendar_icon.png</pixmap>
+      </property>
      </widget>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>30</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 54, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>C:/Users/ADMIN/Downloads/lotus_2982182 (1).png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>90</x>
       <y>590</y>
       <width>551</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 237, 213);
+</string>
     </property>
     <property name="title">
      <string>GroupBox</string>
@@ -335,29 +433,41 @@
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>130</x>
        <y>10</y>
        <width>351</width>
        <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Nirmala Text Semilight</family>
+      </font>
+     </property>
      <property name="text">
-      <string>By clicking this button, I agreed with these General Term &amp; Conditions</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#550000;&quot;&gt;By clicking this button, I agreed with these General Term &amp;amp; Conditions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButtonBookingTable">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>150</x>
        <y>40</y>
-       <width>451</width>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>13</pointsize>
+       <family>Sitka Small Semibold</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 0, 0);
+color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Booking Your Table</string>
@@ -371,7 +481,7 @@
      <x>0</x>
      <y>0</y>
      <width>709</width>
-     <height>22</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
