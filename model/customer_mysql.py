@@ -3,25 +3,23 @@ from data.mysql_connector import conn
 
 cursor = conn.cursor()
 
-# Truy vấn dữ liệu từ bảng customer
+
 sql = "SELECT * FROM customer"
 cursor.execute(sql)
 dataset = cursor.fetchall()
 
-# Chuyển đổi dữ liệu thành danh sách các dict
 data_list = []
 for item in dataset:
     data_list.append({
         "id": item[0],
-        "name": item[1],
-        "age": item[2],
-        "address": item[3],
-        "username": item[4],
-        "password": item[5],
-        "phone_number":item[6]
+        "username": item[1],
+        "password": item[2],
+        "phone_number":item[3],
+        "email":item[4],
+        "name": item[5]
     })
 
-# Lưu dữ liệu vào file JSON
+
 json_file_path = "../dataset/customer_data.json"
 with open(json_file_path, "w", encoding="utf-8") as json_file:
     json.dump(data_list, json_file, indent=4, ensure_ascii=False)

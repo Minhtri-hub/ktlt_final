@@ -3,12 +3,7 @@ import os
 
 
 def get_data_from_json(file_name):
-    """
-    Đọc dữ liệu từ file JSON bất kỳ trong thư mục dataset.
 
-    :param file_name: Tên file JSON cần đọc (VD: "employee_data.json")
-    :return: Danh sách dữ liệu từ file hoặc [] nếu lỗi
-    """
     json_file_path = os.path.join("..", "dataset", file_name)
 
     try:
