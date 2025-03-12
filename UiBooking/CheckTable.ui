@@ -40,7 +40,7 @@
       <rect>
        <x>50</x>
        <y>130</y>
-       <width>71</width>
+       <width>77</width>
        <height>151</height>
       </rect>
      </property>
@@ -431,7 +431,7 @@ color: rgb(85, 0, 0);</string>
       <string>Counter Seating</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="radioButtonPrivateSeating">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -1232,7 +1232,7 @@ background-color: rgb(239, 236, 212);</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>C:/Users/ADMIN/Downloads/lotus_2982182 (1).png</pixmap>
+      <pixmap>../../../../ADMIN/Downloads/lotus_2982182 (1).png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -1246,7 +1246,7 @@ background-color: rgb(239, 236, 212);</string>
      <x>0</x>
      <y>0</y>
      <width>718</width>
-     <height>18</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
