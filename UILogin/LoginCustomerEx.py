@@ -27,24 +27,24 @@ class LoginCustomerEx(Ui_MainWindow):
         self.pushButtonLogin.setEnabled(self.checkBox.isChecked())
 
     def handle_login(self):
-        username = self.lineEditUsername.text().strip()
-        password = self.lineEditPassword.text().strip()
-        if not self.customers:
-            QMessageBox.warning(self.MainWindow,"Lỗi","Không có dữ liệu khách hàng!")
-            return
-        user = None
-        for customer in self.customers:
-            if customer.get("username") == username and customer.get("password") == password:
-                user = customer
-                break
-        if user:
-            QMessageBox.information(self.MainWindow,"Thành công",f"Đăng nhập thành công! Chào mừng {user.get('name')}")
-            print(f"Đăng nhập thành công! Chào mừng {user.get('name')}")
-            self.checktable = CheckTableEx()
-            self.checktable.show()
-            self.MainWindow.close()
-        else:
-            QMessageBox.warning(self.MainWindow,"Lỗi","Tên đăng nhập hoặc mật khẩu không đúng!")
+            username = self.lineEditUsername.text().strip()
+            password = self.lineEditPassword.text().strip()
+            if not self.customers:
+                QMessageBox.warning(self.MainWindow,"Lỗi","Không có dữ liệu khách hàng!")
+                return
+            user = None
+            for customer in self.customers:
+                if customer.get("username") == username and customer.get("password") == password:
+                    user = customer
+                    break
+            if user:
+                QMessageBox.information(self.MainWindow,"Thành công",f"Đăng nhập thành công! Chào mừng {user.get('name')}")
+                print(f"Đăng nhập thành công! Chào mừng {user.get('name')}")
+                self.checktable = CheckTableEx()
+                self.checktable.show()
+                self.MainWindow.close()
+            else:
+                QMessageBox.warning(self.MainWindow,"Lỗi","Tên đăng nhập hoặc mật khẩu không đúng!")
 
     def handle_signup(self):
         from UILogin.SignupEx import SignupEx

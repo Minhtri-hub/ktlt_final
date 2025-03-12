@@ -36,7 +36,7 @@
       <rect>
        <x>50</x>
        <y>130</y>
-       <width>71</width>
+       <width>75</width>
        <height>151</height>
       </rect>
      </property>
@@ -223,7 +223,7 @@
       <string>Counter Seating</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_2">
+    <widget class="QRadioButton" name="radioButtonPrivateSeating">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -458,7 +458,7 @@
      <x>0</x>
      <y>0</y>
      <width>718</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

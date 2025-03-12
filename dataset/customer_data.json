@@ -43,16 +43,16 @@
         "id": 6,
         "username": "m",
         "password": "m",
-        "email": "m",
         "phone_number": "m",
+        "email": "m",
         "name": "m"
     },
     {
         "id": 7,
         "username": "k",
         "password": "k",
-        "email": "k@gmail.com",
         "phone_number": "09087654",
+        "email": "k@gmail.com",
         "name": "k"
     }
 ]
