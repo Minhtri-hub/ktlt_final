@@ -1,0 +1,44 @@
+[
+    {
+        "booking_id": "B001",
+        "customer_id": "C001",
+        "first_name": "Alice",
+        "last_name": "Nguyen",
+        "email": "alice@example.com",
+        "mobile": "+84 123456789",
+        "people": 2,
+        "date": "2025-04-15",
+        "time": "6:30 PM",
+        "seating_type": "Counter Seating",
+        "status": "Confirmed",
+        "special_note": "Anniversary dinner"
+    },
+    {
+        "booking_id": "B002",
+        "customer_id": "C002",
+        "first_name": "Bob",
+        "last_name": "Tran",
+        "email": "bob@example.com",
+        "mobile": "+84 987654321",
+        "people": 4,
+        "date": "2025-04-16",
+        "time": "7:00 PM",
+        "seating_type": "Private Dining",
+        "status": "Pending",
+        "special_note": "Vegetarian meal request"
+    },
+    {
+        "booking_id": "jqqnqwwqjl",
+        "customer_id": "",
+        "first_name": "ựaqwqwolj",
+        "last_name": "",
+        "email": "ưkqwaqj",
+        "mobile": "",
+        "people": "",
+        "date": "01/01/2025",
+        "time": "4:00 PM",
+        "seating_type": "Counter Seating",
+        "status": "Confirmed ",
+        "special_note": ""
+    }
+]
