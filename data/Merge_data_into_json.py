@@ -2,96 +2,84 @@ import json
 import os
 
 
-def merge_data(checktable_path, booking_path, merged_path):
-    # Ensure paths exist
-    if not os.path.exists(checktable_path) or not os.path.exists(booking_path):
-        print("Input files not found!")
+def merge_checktable_and_booking():
+    # File paths for the input and output files
+    check_path = "../dataset/checktable_data.json"
+    booking_path = "../dataset/booking_data.json"
+    merged_path = "../dataset/merged_data.json"
+
+    # Validate file existence
+    if not os.path.exists(check_path):
+        print("Không tìm thấy checktable_data.json! Vui lòng kiểm tra hoặc tạo file.")
+        return
+    if not os.path.exists(booking_path):
+        print("Không tìm thấy booking_data.json! Vui lòng kiểm tra hoặc tạo file.")
         return
 
-    # Load checktable data
-    with open(checktable_path, "r", encoding="utf-8") as f:
-        try:
-            checktable_data = json.load(f)
-        except json.JSONDecodeError:
-            print("Error reading checktable_data.json")
-            return
+    # Load checktable_data.json
+    try:
+        with open(check_path, "r", encoding="utf-8") as f:
+            check_data = json.load(f)
+            if not isinstance(check_data, dict):  # Ensure it is a dictionary
+                print("Invalid format: checktable_data.json must be a dictionary.")
+                return
+    except json.JSONDecodeError:
+        print("Không thể đọc file checktable_data.json. Định dạng JSON không hợp lệ.")
+        return
 
-    # Add source tag to checktable entries
-    for date, seat_types in checktable_data.items():
-        for seat_type, seats in seat_types.items():
-            for seat in seats:
-                seat["source"] = "checktable"  # Mark as coming from checktable
+    # Load booking_data.json
+    try:
+        with open(booking_path, "r", encoding="utf-8") as f:
+            booking_list = json.load(f)
+            if not isinstance(booking_list, list):  # Ensure it is a list
+                print("Invalid format: booking_data.json must be a list.")
+                return
+    except json.JSONDecodeError:
+        print("Không thể đọc file booking_data.json. Định dạng JSON không hợp lệ.")
+        return
 
-    # Load booking data
-    with open(booking_path, "r", encoding="utf-8") as f:
-        try:
-            booking_data = json.load(f)
-        except json.JSONDecodeError:
-            print("Error reading booking_data.json")
-            return
+    # Build a dictionary lookup for booking IDs
+    booking_dict = {}
+    for bk in booking_list:
+        b_id = bk.get("id")
+        if b_id is not None:  # Only include entries with valid IDs
+            booking_dict[b_id] = bk
 
-    # Prepare a merged result
-    merged_data = checktable_data.copy()  # Start with checktable data structure
+    merged_list = []
 
-    # Traverse through booking data and merge
-    for booking in booking_data:
-        booking_id = booking["id"]  # Extract booking ID
-        booking_date = f'Booking date:{booking["date"]}'
-        seat_type = booking.get("seat_type", "private")  # Default to "private" if not specified
+    # Process check_data, combining with matched data from booking_dict
+    for date_str, seat_obj in check_data.items():
+        for seat_type in ["counter", "private"]:
+            if seat_type not in seat_obj:
+                continue
+            for item in seat_obj[seat_type]:
+                # item = { "id": 1, "time": "4:00 PM", "people": 1 }
+                c_id = item.get("id")
+                if c_id in booking_dict:
+                    bk_info = booking_dict[c_id]
+                    # Merge item and booking info
+                    merged_entry = {
+                        "id": c_id,
+                        "date": date_str,
+                        "seat_type": seat_type,
+                        "time": item.get("time"),
+                        "people": item.get("people"),
+                        "first_name": bk_info.get("first_name", ""),
+                        "last_name": bk_info.get("last_name", ""),
+                        "email": bk_info.get("email", ""),
+                        "mobile": bk_info.get("mobile", ""),
+                        "special_note": bk_info.get("special_note", "")
+                    }
+                    merged_list.append(merged_entry)
 
-        if booking_date not in merged_data:
-            merged_data[booking_date] = {"counter": [], "private": []}
-
-        # Find the corresponding seat type and check for matching ID in the correct category
-        seat_list = merged_data[booking_date][seat_type]
-        updated = False
-
-        for seat in seat_list:
-            if seat["id"] == booking_id:
-                # Merge booking details into the checktable entry
-                seat.update({
-                    "first_name": booking.get("first_name", ""),
-                    "last_name": booking.get("last_name", ""),
-                    "email": booking.get("email", ""),
-                    "mobile": booking.get("mobile", ""),
-                    "special_note": booking.get("special_note", ""),
-                    "source": "booking",  # Mark this entry as updated by booking,
-                    "time": f"Booking Time: {booking['time']}"  # Annotate as Booking Time
-                })
-                updated = True
-                break
-
-        if not updated:
-            # If no matching ID is found, add this booking as a new entry
-            seat_list.append({
-                "id": booking_id,
-                "time": f"Booking Time: {booking['time']}",  # Annotate as Booking Time
-                "first_name": booking.get("first_name", ""),
-                "last_name": booking.get("last_name", ""),
-                "email": booking.get("email", ""),
-                "mobile": booking.get("mobile", ""),
-                "special_note": booking.get("special_note", ""),
-                "source": "booking"  # Mark this new entry as added by booking
-            })
-
-    # Save merged result
-    os.makedirs(os.path.dirname(merged_path), exist_ok=True)
-    with open(merged_path, "w", encoding="utf-8") as f:
-        json.dump(merged_data, f, indent=4, ensure_ascii=False)
-    print(f"Merged data saved to {merged_path}")
-
-    # Print details of merged data with source information for debugging/checking
-    for date, seat_types in merged_data.items():
-        print(f"Date: {date}")
-        for seat_type, seats in seat_types.items():
-            print(f"  Seat Type: {seat_type}")
-            for seat in seats:
-                print(f"    {seat['time']}, Source: {seat['source']}")
+    # Save the merged data to a new JSON file
+    try:
+        with open(merged_path, "w", encoding="utf-8") as f:
+            json.dump(merged_list, f, indent=4, ensure_ascii=False)
+        print(f"Đã merge {len(merged_list)} dòng vào {merged_path}")
+    except Exception as e:
+        print(f"Lỗi khi lưu dữ liệu vào {merged_path}: {e}")
 
 
-# Example usage
-merge_data(
-    "../dataset/checktable_data.json",
-    "../dataset/booking_data.json",
-    "../dataset/merged_data.json"
-)
+if __name__ == "__main__":
+    merge_checktable_and_booking()

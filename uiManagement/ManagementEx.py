@@ -26,27 +26,37 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.show()
 
     def load_employee_data(self):
-        self.tableWidgetEmployee.setRowCount(0)
-        path = "../dataset/employee_data.json"
-        if not os.path.exists(path):
+        self.tableWidgetEmployee.setRowCount(0)  # Clear the table
+        path = "../dataset/employee_data.json"  # Path to the JSON file
+
+        if not os.path.exists(path):  # Check if the file exists
+            print(f"File not found: {path}")
             return
+
         with open(path, "r", encoding="utf-8") as f:
             try:
-                employees = json.load(f)
-            except:
+                employees = json.load(f)  # Load the employee data
+            except json.JSONDecodeError as e:
+                print(f"Error loading JSON: {e}")
                 employees = []
+
+        # Set up table columns
         self.tableWidgetEmployee.setColumnCount(6)
         self.tableWidgetEmployee.setHorizontalHeaderLabels([
             "ID", "Name", "Username", "Password", "Hire Date", "Salary"
         ])
-        self.tableWidgetEmployee.setRowCount(len(employees))
+
+        # Populate the table
+        self.tableWidgetEmployee.setRowCount(len(employees))  # Set row count
         for row, emp in enumerate(employees):
-            e_id = str(emp.get("id", ""))
-            e_name = emp.get("name", "")
-            e_user = emp.get("username", "")
-            e_pass = emp.get("password", "")
-            e_hire = emp.get("hire_date", "")
-            e_sal = str(emp.get("salary", ""))
+            e_id = str(emp.get("EmployeeId", ""))  # Corrected key for EmployeeId
+            e_name = emp.get("EmployeeName", "")  # Corrected key for EmployeeName
+            e_user = emp.get("EmployeeUsername", "")  # Corrected key for EmployeeUsername
+            e_pass = emp.get("EmployeePass", "")  # Corrected key for EmployeePass
+            e_hire = emp.get("hire_date", "")  # `"hire_date"` remains correct
+            e_sal = str(emp.get("salary", ""))  # `"salary"` remains correct
+
+            # Set table items
             self.tableWidgetEmployee.setItem(row, 0, QTableWidgetItem(e_id))
             self.tableWidgetEmployee.setItem(row, 1, QTableWidgetItem(e_name))
             self.tableWidgetEmployee.setItem(row, 2, QTableWidgetItem(e_user))
@@ -60,51 +70,49 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
         # Check if the file exists
         if not os.path.exists(path):
+            QMessageBox.warning(self, "Error", f"Không tìm thấy file: {path}")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 merged_data = json.load(f)  # Load the JSON content
-            except:
-                merged_data = {}  # In case there's an issue with file contents
+            except json.JSONDecodeError:
+                QMessageBox.warning(self, "Error", f"Dữ liệu trong {path} không hợp lệ!")
+                return
 
         # Prepare the table
-        self.tableWidgetBooking.setColumnCount(8)  # Set up for 8 columns
+        self.tableWidgetBooking.setColumnCount(9)  # Set up for 9 columns
         self.tableWidgetBooking.setHorizontalHeaderLabels([
             "Booking ID", "Full Name", "Email", "Mobile",
-            "Seat Type", "Booking Date", "Total Customers", "Special Note"
+            "Seat Type", "Booking Time", "Total Customers", "Special Note", "Booking Date"
         ])
 
-        # List to hold rows (each row corresponds to booking information)
-        all_bookings = []
-
-        for date, bookings in merged_data.items():
-            # Process 'private' bookings (if they exist)
-            private_bookings = bookings.get("private", [])
-            for booking in private_bookings:
-                # Extract details from the `private` entry
-                b_id = str(booking.get("id", ""))
-                first_name = booking.get("first_name", "")
-                last_name = booking.get("last_name", "")
-                full_name = f"{first_name} {last_name}".strip()  # Combine names
-                email = booking.get("email", "")
-                mobile = booking.get("mobile", "")
-                seat_type = booking.get("source", "")  # Use 'source' to infer seat type
-                booking_time = booking.get("time", "")
-                total_customers = str(booking.get("people", ""))
-                special_note = booking.get("special_note", "")
-
-                # Append the booking row
-                all_bookings.append([
-                    b_id, full_name, email, mobile, booking_time,
-                    seat_type, date, total_customers, special_note
-                ])
-
         # Populate the table widget
-        self.tableWidgetBooking.setRowCount(len(all_bookings))  # Set number of rows
-        for row, booking in enumerate(all_bookings):
-            for col, value in enumerate(booking):
-                self.tableWidgetBooking.setItem(row, col, QTableWidgetItem(value))
+        self.tableWidgetBooking.setRowCount(len(merged_data))  # Define the number of rows
+        for row, booking in enumerate(merged_data):
+            # Extract information from each booking in `merged_data.json`
+            b_id = str(booking.get("id", ""))
+            first_name = booking.get("first_name", "")
+            last_name = booking.get("last_name", "")
+            full_name = f"{first_name} {last_name}".strip()  # Combine first and last name
+            email = booking.get("email", "")
+            mobile = booking.get("mobile", "")
+            seat_type = booking.get("seat_type", "")
+            booking_time = booking.get("time", "")
+            total_customers = str(booking.get("people", ""))
+            special_note = booking.get("special_note", "")
+            booking_date = booking.get("date", "")
+
+            # Populate the table row
+            self.tableWidgetBooking.setItem(row, 0, QTableWidgetItem(b_id))
+            self.tableWidgetBooking.setItem(row, 1, QTableWidgetItem(full_name))
+            self.tableWidgetBooking.setItem(row, 2, QTableWidgetItem(email))
+            self.tableWidgetBooking.setItem(row, 3, QTableWidgetItem(mobile))
+            self.tableWidgetBooking.setItem(row, 4, QTableWidgetItem(seat_type))
+            self.tableWidgetBooking.setItem(row, 5, QTableWidgetItem(booking_time))
+            self.tableWidgetBooking.setItem(row, 6, QTableWidgetItem(total_customers))
+            self.tableWidgetBooking.setItem(row, 7, QTableWidgetItem(special_note))
+            self.tableWidgetBooking.setItem(row, 8, QTableWidgetItem(booking_date))
 
     @pyqtSlot(int, int)
     def on_employee_selected(self, row, col):
@@ -123,10 +131,9 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.lineEditEmployeeHireDate.setText(e_hire)
         self.lineEditEmployeeSalary.setText(e_sal)
 
-
-
     @pyqtSlot(int, int)
     def on_booking_selected(self, row, col):
+        # Retrieve booking details from the selected row
         b_id = self.tableWidgetBooking.item(row, 0).text()
         b_name = self.tableWidgetBooking.item(row, 1).text()
         b_email = self.tableWidgetBooking.item(row, 2).text()
@@ -135,7 +142,9 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         b_time = self.tableWidgetBooking.item(row, 5).text()
         b_cust = self.tableWidgetBooking.item(row, 6).text()
         b_note = self.tableWidgetBooking.item(row, 7).text()
+        b_date = self.tableWidgetBooking.item(row, 8).text()  # Fetch the Booking Date
 
+        # Populate the line edits and combo boxes with detailed data
         self.lineEditBookingID.setText(b_id)
         self.lineEditFullName.setText(b_name)
         self.lineEditEmail.setText(b_email)
@@ -144,6 +153,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.lineEditBookingTime.setText(b_time)
         self.lineEditTotalCustomers.setText(b_cust)
         self.lineEditNote.setText(b_note)
+        self.lineEditBookingDate.setText(b_date)  # Set the Booking Date in the date field
 
     def create_employee(self):
         e_id = self.lineEditEmployeeID.text().strip()  # Employee ID

@@ -57,8 +57,6 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
             "email": email,
             "mobile": mobile,
             "special_note": special_note,
-            "booking_date": current_datetime.strftime("%Y-%m-%d"),
-            "booking_time": current_datetime.strftime("%H:%M:%S"),
         }
         book_list.append(new_booking)
 
