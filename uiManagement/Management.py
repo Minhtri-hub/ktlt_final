@@ -33,11 +33,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButtonSaveEmployee = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
-        self.pushButtonSaveEmployee.setStyleSheet("background-color: rgb(0, 85, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.pushButtonSaveEmployee.setObjectName("pushButtonSaveEmployee")
-        self.horizontalLayout.addWidget(self.pushButtonSaveEmployee)
         self.pushButtonCreateEmployee = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
         self.pushButtonCreateEmployee.setStyleSheet("background-color: rgb(0, 85, 0);\n"
 "color: rgb(255, 255, 255);")
@@ -59,11 +54,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.pushButtonSaveBooking = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
-        self.pushButtonSaveBooking.setStyleSheet("background-color: rgb(0, 85, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.pushButtonSaveBooking.setObjectName("pushButtonSaveBooking")
-        self.horizontalLayout_2.addWidget(self.pushButtonSaveBooking)
         self.pushButtonCreateBooking = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
         self.pushButtonCreateBooking.setStyleSheet("background-color: rgb(0, 85, 0);\n"
 "color: rgb(255, 255, 255);")
@@ -282,11 +272,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">LOTUS\'S MANAGEMENT</span></p></body></html>"))
-        self.pushButtonSaveEmployee.setText(_translate("MainWindow", "Save"))
         self.pushButtonCreateEmployee.setText(_translate("MainWindow", "Create"))
         self.pushButtonUpdateEmployee.setText(_translate("MainWindow", "Update"))
         self.pushButtonDeleteEmployee.setText(_translate("MainWindow", "Delete"))
-        self.pushButtonSaveBooking.setText(_translate("MainWindow", "Save"))
         self.pushButtonCreateBooking.setText(_translate("MainWindow", "Create"))
         self.pushButtonUpdateBooking.setText(_translate("MainWindow", "Update"))
         self.pushButtonDeleteBooking.setText(_translate("MainWindow", "Delete"))
