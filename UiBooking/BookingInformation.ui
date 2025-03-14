@@ -45,19 +45,6 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label_3">
-        <property name="font">
-         <font>
-          <family>Nirmala Text Semilight</family>
-          <pointsize>13</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>First Name: </string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLabel" name="label_2">
         <property name="font">
          <font>
@@ -66,7 +53,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Last Name:</string>
+         <string>Full Name:</string>
         </property>
        </widget>
       </item>
@@ -111,7 +98,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QLineEdit" name="lineEditFirstName">
+    <widget class="QLineEdit" name="lineEditFullName">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -131,25 +118,11 @@ color: rgb(85, 0, 0);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditLastName">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>220</y>
-       <width>371</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(85, 0, 0);</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lineEditEmail">
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>280</y>
+       <y>240</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -166,7 +139,7 @@ color: rgb(85, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>340</y>
+       <y>300</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -183,9 +156,9 @@ color: rgb(85, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>380</y>
+       <y>350</y>
        <width>371</width>
-       <height>71</height>
+       <height>111</height>
       </rect>
      </property>
      <property name="styleSheet">

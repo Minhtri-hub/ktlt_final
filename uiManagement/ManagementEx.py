@@ -70,49 +70,56 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
         # Check if the file exists
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", f"Không tìm thấy file: {path}")
+            print("Error: merged_data.json file does not exist")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 merged_data = json.load(f)  # Load the JSON content
             except json.JSONDecodeError:
-                QMessageBox.warning(self, "Error", f"Dữ liệu trong {path} không hợp lệ!")
+                print("Error: Invalid JSON content in merged_data.json")
                 return
 
+        # Validate that the root structure is a list
+        if not isinstance(merged_data, list):
+            print("Error: Expected a list in merged_data.json, but received something else.")
+            return
+
         # Prepare the table
-        self.tableWidgetBooking.setColumnCount(9)  # Set up for 9 columns
+        self.tableWidgetBooking.setColumnCount(9)  # Define 9 columns
         self.tableWidgetBooking.setHorizontalHeaderLabels([
             "Booking ID", "Full Name", "Email", "Mobile",
             "Seat Type", "Booking Time", "Total Customers", "Special Note", "Booking Date"
         ])
 
-        # Populate the table widget
-        self.tableWidgetBooking.setRowCount(len(merged_data))  # Define the number of rows
-        for row, booking in enumerate(merged_data):
-            # Extract information from each booking in `merged_data.json`
-            b_id = str(booking.get("id", ""))
+        # List to hold rows (each row corresponds to booking information)
+        all_bookings = []
+
+        # Iterate over the list and extract the necessary information
+        for booking in merged_data:
+            b_id = str(booking.get("id", ""))  # Booking ID
             first_name = booking.get("first_name", "")
             last_name = booking.get("last_name", "")
-            full_name = f"{first_name} {last_name}".strip()  # Combine first and last name
+            full_name = f"{first_name} {last_name}".strip()  # Combine names safely
             email = booking.get("email", "")
             mobile = booking.get("mobile", "")
-            seat_type = booking.get("seat_type", "")
+            seat_type = booking.get("seat_type", "")  # Seat type
             booking_time = booking.get("time", "")
-            total_customers = str(booking.get("people", ""))
+            total_customers = str(booking.get("people", ""))  # Total customers
             special_note = booking.get("special_note", "")
-            booking_date = booking.get("date", "")
+            booking_date = booking.get("date", "")  # Booking date
 
-            # Populate the table row
-            self.tableWidgetBooking.setItem(row, 0, QTableWidgetItem(b_id))
-            self.tableWidgetBooking.setItem(row, 1, QTableWidgetItem(full_name))
-            self.tableWidgetBooking.setItem(row, 2, QTableWidgetItem(email))
-            self.tableWidgetBooking.setItem(row, 3, QTableWidgetItem(mobile))
-            self.tableWidgetBooking.setItem(row, 4, QTableWidgetItem(seat_type))
-            self.tableWidgetBooking.setItem(row, 5, QTableWidgetItem(booking_time))
-            self.tableWidgetBooking.setItem(row, 6, QTableWidgetItem(total_customers))
-            self.tableWidgetBooking.setItem(row, 7, QTableWidgetItem(special_note))
-            self.tableWidgetBooking.setItem(row, 8, QTableWidgetItem(booking_date))
+            # Append the booking row to our list
+            all_bookings.append([
+                b_id, full_name, email, mobile,
+                seat_type, booking_time, total_customers, special_note, booking_date
+            ])
+
+        # Populate the table widget with the bookings
+        self.tableWidgetBooking.setRowCount(len(all_bookings))  # Set the row count based on data
+        for row, booking in enumerate(all_bookings):
+            for col, value in enumerate(booking):
+                self.tableWidgetBooking.setItem(row, col, QTableWidgetItem(value))
 
     @pyqtSlot(int, int)
     def on_employee_selected(self, row, col):
@@ -131,9 +138,10 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.lineEditEmployeeHireDate.setText(e_hire)
         self.lineEditEmployeeSalary.setText(e_sal)
 
+
+
     @pyqtSlot(int, int)
     def on_booking_selected(self, row, col):
-        # Retrieve booking details from the selected row
         b_id = self.tableWidgetBooking.item(row, 0).text()
         b_name = self.tableWidgetBooking.item(row, 1).text()
         b_email = self.tableWidgetBooking.item(row, 2).text()
@@ -142,9 +150,9 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         b_time = self.tableWidgetBooking.item(row, 5).text()
         b_cust = self.tableWidgetBooking.item(row, 6).text()
         b_note = self.tableWidgetBooking.item(row, 7).text()
-        b_date = self.tableWidgetBooking.item(row, 8).text()  # Fetch the Booking Date
+        b_date = self.tableWidgetBooking.item(row, 8).text()  # Booking date (added)
 
-        # Populate the line edits and combo boxes with detailed data
+        # Set values to the appropriate line edits/combobox
         self.lineEditBookingID.setText(b_id)
         self.lineEditFullName.setText(b_name)
         self.lineEditEmail.setText(b_email)
@@ -153,7 +161,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.lineEditBookingTime.setText(b_time)
         self.lineEditTotalCustomers.setText(b_cust)
         self.lineEditNote.setText(b_note)
-        self.lineEditBookingDate.setText(b_date)  # Set the Booking Date in the date field
+        self.lineEditBookingDate.setText(b_date)  # Set the booking date
 
     def create_employee(self):
         e_id = self.lineEditEmployeeID.text().strip()  # Employee ID
@@ -214,7 +222,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Vui lòng nhập Employee ID để cập nhật!")
             return
 
-        path = "employee_data.json"
+        path = "../dataset/employee_data.json"
         if not os.path.exists(path):
             QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu employee_data.json!")
             return
@@ -246,52 +254,56 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", f"Không tìm thấy Employee ID: {e_id}")
 
     def delete_employee(self):
-        e_id = self.lineEditEmployeeID.text().strip()
+        e_id = self.lineEditEmployeeID.text().strip()  # Get Employee ID from the input
 
         if not e_id:
             QMessageBox.warning(self, "Error", "Vui lòng nhập Employee ID để xóa!")
             return
 
-        path = "employee_data.json"
+        path = "../dataset/employee_data.json"  # Path to the JSON file
         if not os.path.exists(path):
             QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu employee_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
-                employees = json.load(f)
+                employees = json.load(f)  # Load employee data from the JSON file
             except json.JSONDecodeError:
                 QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
                 return
 
+        # Ensure comparison consistency between e_id and the JSON EmployeeId
         original_length = len(employees)
-        employees = [emp for emp in employees if emp.get("id") != e_id]
 
-        if len(employees) < original_length:
+        # Check both integer and string possibilities for comparison
+        employees = [emp for emp in employees if str(emp.get("EmployeeId", "")) != e_id]
+
+        if len(employees) < original_length:  # If any employee was deleted
             with open(path, "w", encoding="utf-8") as f:
-                json.dump(employees, f, indent=4, ensure_ascii=False)
+                json.dump(employees, f, indent=4, ensure_ascii=False)  # Save updated JSON
             QMessageBox.information(self, "Success", "Xóa thành công nhân viên!")
-            self.load_employee_data()  # Tải lại dữ liệu lên bảng
+            self.load_employee_data()  # Reload employee table data
         else:
             QMessageBox.warning(self, "Error", f"Không tìm thấy Employee ID: {e_id}")
 
     def create_booking(self):
-        b_id = self.lineEditBookingID.text().strip()  # Booking ID
-        b_name = self.lineEditFullName.text().strip()  # Full Name
-        b_email = self.lineEditEmail.text().strip()  # Email
-        b_mobile = self.lineEditMobile.text().strip()  # Mobile
-        b_seat = self.comboBoxSeatType.currentText()  # Seat Type
-        b_time = self.lineEditBookingTime.text().strip()  # Booking Time
-        b_cust = self.lineEditTotalCustomers.text().strip()  # Total Customers
-        b_note = self.lineEditNote.text().strip()  # Special Note
+        b_id = self.lineEditBookingID.text().strip()
+        b_name = self.lineEditFullName.text().strip()
+        b_email = self.lineEditEmail.text().strip()
+        b_mobile = self.lineEditMobile.text().strip()
+        b_seat = self.comboBoxSeatType.currentText()
+        b_time = self.lineEditBookingTime.text().strip()
+        b_cust = self.lineEditTotalCustomers.text().strip()
+        b_note = self.lineEditNote.text().strip()
+        b_date = self.lineEditBookingDate.text().strip()
 
-        if not b_id or not b_name:  # Validate required fields
-            QMessageBox.warning(self, "Error", "Booking ID và Full Name không được để trống!")
+        if not b_id or not b_name or not b_date:
+            QMessageBox.warning(self, "Error", "Booking ID, Full Name, và Booking Date không được để trống!")
             return
 
         try:
-            b_id = int(b_id)  # Ensure ID is an integer
-            b_cust = int(b_cust) if b_cust else 0  # Ensure customers count is integer, default to 0
+            b_id = int(b_id)
+            b_cust = int(b_cust) if b_cust else 0
         except ValueError:
             QMessageBox.warning(self, "Error", "Booking ID và Total Customers phải là số nguyên!")
             return
@@ -306,12 +318,10 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         else:
             bookings = []
 
-        # Check if ID is already used
-        if any(int(book.get("id")) == b_id for book in bookings):
+        if any(int(book.get("id", 0)) == b_id for book in bookings):
             QMessageBox.warning(self, "Error", f"Booking ID: {b_id} đã tồn tại!")
             return
 
-        # Create new booking JSON entry
         new_book = {
             "id": b_id,
             "full_name": b_name,
@@ -320,7 +330,8 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             "seat_type": b_seat,
             "booking_time": b_time,
             "total_customers": b_cust,
-            "special_note": b_note
+            "special_note": b_note,
+            "date": b_date
         }
 
         bookings.append(new_book)
@@ -328,7 +339,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             json.dump(bookings, f, indent=4, ensure_ascii=False)
 
         QMessageBox.information(self, "Success", "Tạo booking thành công!")
-        self.load_booking_data()  # Reload booking table
+        self.load_booking_data()
 
     def update_booking(self):
         b_id = self.lineEditBookingID.text().strip()
@@ -337,66 +348,70 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để cập nhật!")
             return
 
-        path = "booking_data.json"
+        path = "../dataset/merged_data.json"  # Use merged_data.json
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu booking_data.json!")
+            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu merged_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
-                bookings = json.load(f)
+                bookings = json.load(f)  # Load the booking data
             except json.JSONDecodeError:
                 QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
                 return
 
+        # Update the entry with matching Booking ID
         updated = False
         for book in bookings:
-            if book.get("id") == b_id:
+            if str(book.get("id")) == b_id:  # Match Booking ID
                 book["full_name"] = self.lineEditFullName.text().strip()
                 book["email"] = self.lineEditEmail.text().strip()
                 book["mobile"] = self.lineEditMobile.text().strip()
                 book["seat_type"] = self.comboBoxSeatType.currentText().strip()
                 book["booking_time"] = self.lineEditBookingTime.text().strip()
-                book["total_customers"] = self.lineEditTotalCustomers.text().strip()
+                book["total_customers"] = int(
+                    self.lineEditTotalCustomers.text().strip()) if self.lineEditTotalCustomers.text().strip().isdigit() else 0
                 book["special_note"] = self.lineEditNote.text().strip()
+                book["date"] = self.lineEditBookingDate.text().strip()  # Add or update 'date' field
                 updated = True
                 break
 
         if updated:
             with open(path, "w", encoding="utf-8") as f:
-                json.dump(bookings, f, indent=4, ensure_ascii=False)
+                json.dump(bookings, f, indent=4, ensure_ascii=False)  # Save changes to file
             QMessageBox.information(self, "Success", "Cập nhật booking thành công!")
-            self.load_booking_data()
+            self.load_booking_data()  # Reload table data
         else:
             QMessageBox.warning(self, "Error", f"Không tìm thấy Booking ID: {b_id}")
 
     def delete_booking(self):
-        b_id = self.lineEditBookingID.text().strip()
+        b_id = self.lineEditBookingID.text().strip()  # Get the Booking ID from the input field
 
         if not b_id:
             QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để xóa!")
             return
 
-        path = "booking_data.json"
+        path = "../dataset/merged_data.json"  # Use merged_data.json file
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu booking_data.json!")
+            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu merged_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
-                bookings = json.load(f)
+                bookings = json.load(f)  # Load booking data from the file
             except json.JSONDecodeError:
                 QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
                 return
 
+        # Track the original length of data and filter out the record with matching Booking ID
         original_length = len(bookings)
-        bookings = [book for book in bookings if book.get("id") != b_id]
+        bookings = [book for book in bookings if str(book.get("id")) != b_id]
 
-        if len(bookings) < original_length:
+        if len(bookings) < original_length:  # Check if any record was removed
             with open(path, "w", encoding="utf-8") as f:
-                json.dump(bookings, f, indent=4, ensure_ascii=False)
+                json.dump(bookings, f, indent=4, ensure_ascii=False)  # Save updated bookings to the file
             QMessageBox.information(self, "Success", "Xóa thành công Booking!")
-            self.load_booking_data()
+            self.load_booking_data()  # Reload table data
         else:
             QMessageBox.warning(self, "Error", f"Không tìm thấy Booking ID: {b_id}")
 
