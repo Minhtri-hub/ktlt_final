@@ -12,11 +12,11 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1170, 994)
+        MainWindow.resize(1184, 992)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(parent=self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(50, -10, 521, 481))
+        self.groupBox.setGeometry(QtCore.QRect(330, 210, 521, 481))
         self.groupBox.setStyleSheet("background-color: rgb(239, 236, 212);")
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
@@ -28,6 +28,7 @@ class Ui_MainWindow(object):
         self.lineEditUsernameEmployee.setFont(font)
         self.lineEditUsernameEmployee.setStyleSheet("color: rgb(126, 126, 126);\n"
 "background-color: rgb(255, 255, 255);")
+        self.lineEditUsernameEmployee.setText("")
         self.lineEditUsernameEmployee.setObjectName("lineEditUsernameEmployee")
         self.lineEditPasswordEmployee = QtWidgets.QLineEdit(parent=self.groupBox)
         self.lineEditPasswordEmployee.setGeometry(QtCore.QRect(60, 270, 431, 41))
@@ -37,6 +38,7 @@ class Ui_MainWindow(object):
         self.lineEditPasswordEmployee.setFont(font)
         self.lineEditPasswordEmployee.setStyleSheet("color: rgb(124, 124, 124);\n"
 "background-color: rgb(255, 255, 255);")
+        self.lineEditPasswordEmployee.setText("")
         self.lineEditPasswordEmployee.setObjectName("lineEditPasswordEmployee")
         self.pushButtonLoginEmployee = QtWidgets.QPushButton(parent=self.groupBox)
         self.pushButtonLoginEmployee.setGeometry(QtCore.QRect(180, 370, 181, 41))
@@ -65,7 +67,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1170, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1184, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -79,6 +81,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.groupBox.setWhatsThis(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.lineEditUsernameEmployee.setText(_translate("MainWindow", " *USER NAME"))
-        self.lineEditPasswordEmployee.setText(_translate("MainWindow", "*PASSWORD"))
+        self.lineEditUsernameEmployee.setPlaceholderText(_translate("MainWindow", "*User Name"))
+        self.lineEditPasswordEmployee.setPlaceholderText(_translate("MainWindow", "* Password"))
         self.pushButtonLoginEmployee.setText(_translate("MainWindow", "Log in"))

@@ -27,7 +27,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
     def load_employee_data(self):
         self.tableWidgetEmployee.setRowCount(0)
-        path = "employee_data.json"
+        path = "../dataset/employee_data.json"
         if not os.path.exists(path):
             return
         with open(path, "r", encoding="utf-8") as f:
@@ -55,38 +55,56 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             self.tableWidgetEmployee.setItem(row, 5, QTableWidgetItem(e_sal))
 
     def load_booking_data(self):
-        self.tableWidgetBooking.setRowCount(0)
-        path = "booking_data.json"
+        self.tableWidgetBooking.setRowCount(0)  # Clear existing rows
+        path = "../dataset/merged_data.json"  # Path to the merged JSON file
+
+        # Check if the file exists
         if not os.path.exists(path):
             return
+
         with open(path, "r", encoding="utf-8") as f:
             try:
-                bookings = json.load(f)
+                merged_data = json.load(f)  # Load the JSON content
             except:
-                bookings = []
-        self.tableWidgetBooking.setColumnCount(8)
+                merged_data = {}  # In case there's an issue with file contents
+
+        # Prepare the table
+        self.tableWidgetBooking.setColumnCount(8)  # Set up for 8 columns
         self.tableWidgetBooking.setHorizontalHeaderLabels([
             "Booking ID", "Full Name", "Email", "Mobile",
-            "Seat Type", "Booking Time", "Total Customers", "Special Note"
+            "Seat Type", "Booking Date", "Total Customers", "Special Note"
         ])
-        self.tableWidgetBooking.setRowCount(len(bookings))
-        for row, book in enumerate(bookings):
-            b_id = str(book.get("id", ""))
-            b_name = book.get("full_name", "")
-            b_email = book.get("email", "")
-            b_mobile = book.get("mobile", "")
-            b_seat = book.get("seat_type", "")
-            b_time = book.get("booking_time", "")
-            b_cust = str(book.get("total_customers", ""))
-            b_note = book.get("special_note", "")
-            self.tableWidgetBooking.setItem(row, 0, QTableWidgetItem(b_id))
-            self.tableWidgetBooking.setItem(row, 1, QTableWidgetItem(b_name))
-            self.tableWidgetBooking.setItem(row, 2, QTableWidgetItem(b_email))
-            self.tableWidgetBooking.setItem(row, 3, QTableWidgetItem(b_mobile))
-            self.tableWidgetBooking.setItem(row, 4, QTableWidgetItem(b_seat))
-            self.tableWidgetBooking.setItem(row, 5, QTableWidgetItem(b_time))
-            self.tableWidgetBooking.setItem(row, 6, QTableWidgetItem(b_cust))
-            self.tableWidgetBooking.setItem(row, 7, QTableWidgetItem(b_note))
+
+        # List to hold rows (each row corresponds to booking information)
+        all_bookings = []
+
+        for date, bookings in merged_data.items():
+            # Process 'private' bookings (if they exist)
+            private_bookings = bookings.get("private", [])
+            for booking in private_bookings:
+                # Extract details from the `private` entry
+                b_id = str(booking.get("id", ""))
+                first_name = booking.get("first_name", "")
+                last_name = booking.get("last_name", "")
+                full_name = f"{first_name} {last_name}".strip()  # Combine names
+                email = booking.get("email", "")
+                mobile = booking.get("mobile", "")
+                seat_type = booking.get("source", "")  # Use 'source' to infer seat type
+                booking_time = booking.get("time", "")
+                total_customers = str(booking.get("people", ""))
+                special_note = booking.get("special_note", "")
+
+                # Append the booking row
+                all_bookings.append([
+                    b_id, full_name, email, mobile, booking_time,
+                    seat_type, date, total_customers, special_note
+                ])
+
+        # Populate the table widget
+        self.tableWidgetBooking.setRowCount(len(all_bookings))  # Set number of rows
+        for row, booking in enumerate(all_bookings):
+            for col, value in enumerate(booking):
+                self.tableWidgetBooking.setItem(row, col, QTableWidgetItem(value))
 
     @pyqtSlot(int, int)
     def on_employee_selected(self, row, col):
@@ -146,7 +164,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Employee ID và Salary phải là số nguyên!")
             return
 
-        path = "employee_data.json"
+        path = "../dataset/employee_data.json"
         if os.path.exists(path):  # Check if JSON exists
             with open(path, "r", encoding="utf-8") as f:
                 try:
@@ -268,7 +286,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Booking ID và Total Customers phải là số nguyên!")
             return
 
-        path = "booking_data.json"
+        path = "../dataset/merged_data.json"
         if os.path.exists(path):
             with open(path, "r", encoding="utf-8") as f:
                 try:

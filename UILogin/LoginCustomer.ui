@@ -90,6 +90,9 @@
 background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
       <string>*User Name</string>
      </property>
     </widget>
@@ -122,6 +125,12 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Normal</enum>
+     </property>
+     <property name="placeholderText">
       <string>* Password</string>
      </property>
     </widget>

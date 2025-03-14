@@ -45,6 +45,7 @@ class Ui_MainWindow(object):
         self.lineEditUsername.setStatusTip("")
         self.lineEditUsername.setStyleSheet("color: rgb(118, 118, 118);\n"
 "background-color: rgb(255, 255, 255);")
+        self.lineEditUsername.setText("")
         self.lineEditUsername.setObjectName("lineEditUsername")
         self.lineEditPassword = QtWidgets.QLineEdit(parent=self.groupBox)
         self.lineEditPassword.setGeometry(QtCore.QRect(40, 220, 421, 31))
@@ -58,6 +59,8 @@ class Ui_MainWindow(object):
         self.lineEditPassword.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SizeBDiagCursor))
         self.lineEditPassword.setStyleSheet("color: rgb(121, 121, 121);\n"
 "background-color: rgb(255, 255, 255);")
+        self.lineEditPassword.setText("")
+        self.lineEditPassword.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
         self.lineEditPassword.setObjectName("lineEditPassword")
         self.label_3 = QtWidgets.QLabel(parent=self.groupBox)
         self.label_3.setGeometry(QtCore.QRect(120, 380, 261, 51))
@@ -162,9 +165,9 @@ class Ui_MainWindow(object):
         self.groupBox.setAccessibleDescription(_translate("MainWindow", "<html><head/><body><p>* Địa chỉ Email</p></body></html>"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; color:#fffaf6;\">Log in to your account</span></p></body></html>"))
         self.lineEditUsername.setAccessibleDescription(_translate("MainWindow", "* Địa chỉ Email"))
-        self.lineEditUsername.setText(_translate("MainWindow", "*User Name"))
+        self.lineEditUsername.setPlaceholderText(_translate("MainWindow", "*User Name"))
         self.lineEditPassword.setAccessibleDescription(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#888888;\">* Mật Khẩu</span></p></body></html>"))
-        self.lineEditPassword.setText(_translate("MainWindow", "* Password"))
+        self.lineEditPassword.setPlaceholderText(_translate("MainWindow", "* Password"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Or</span></p></body></html>"))
         self.checkBox.setText(_translate("MainWindow", "I have read and agreed to Lotus\'s Privacy Policy, Terms and Conditions."))
         self.pushButtonLogin.setText(_translate("MainWindow", "Login"))
