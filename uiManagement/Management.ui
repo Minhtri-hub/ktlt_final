@@ -315,7 +315,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLabel" name="label_15">
@@ -472,7 +472,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditEmail">
@@ -485,7 +485,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditMobile">
@@ -498,7 +498,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditNote">
@@ -511,7 +511,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditBookingDate">
@@ -524,20 +524,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditSeatType">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>80</y>
-            <width>191</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditBookingTime">
@@ -550,7 +537,7 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
          </widget>
          <widget class="QLineEdit" name="lineEditTotalCustomers">
@@ -563,8 +550,31 @@ color: rgb(255, 255, 255);</string>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
           </property>
+         </widget>
+         <widget class="QComboBox" name="comboBoxSeatType">
+          <property name="geometry">
+           <rect>
+            <x>470</x>
+            <y>70</y>
+            <width>191</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(85, 170, 0);</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Private</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Counter</string>
+           </property>
+          </item>
          </widget>
         </widget>
         <widget class="QLineEdit" name="lineEditEmployeeID">
@@ -577,7 +587,7 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_8">
@@ -626,7 +636,7 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_10">
@@ -657,7 +667,7 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_11">
@@ -688,7 +698,7 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_12">
@@ -719,7 +729,8 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_13">
@@ -750,7 +761,7 @@ color: rgb(255, 255, 255);</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(85, 170, 0);</string>
          </property>
         </widget>
        </widget>
@@ -825,10 +836,18 @@ color: rgb(255, 255, 255);</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QListView" name="listView"/>
+      <widget class="QListWidget" name="listWidget">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(170, 170, 0);</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QTableView" name="tableView"/>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(170, 170, 0);</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
