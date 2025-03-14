@@ -1,8 +1,8 @@
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
 from UiBooking.BookingInformation import Ui_BookingInformation
 import json
-import os
 from datetime import datetime
+import os
 
 
 class BookingInformationEx(QMainWindow, Ui_BookingInformation):
@@ -11,54 +11,63 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         self.setupUi(self)
         self.setupSignalAndSlot()
 
+    def showWindow(self):
+        self.show()
+
     def setupSignalAndSlot(self):
+        # Connect the "Book Table" button to the `handle_booking` slot
         self.pushButtonBookingTable.clicked.connect(self.handle_booking)
 
     def handle_booking(self):
-        # Input data from the booking form
         first_name = self.lineEditFirstName.text().strip()
         last_name = self.lineEditLastName.text().strip()
         email = self.lineEditEmail.text().strip()
         mobile = self.lineEditMobile.text().strip()
         special_note = self.lineEditSpecialNote.text().strip()
 
-        # Set default date and time if not provided (using current date and time)
-        current_datetime = datetime.now()
-        selected_date = current_datetime.strftime("%d/%m/%Y")  # Format: "01/11/2023" (day, month, year)
-        selected_time = current_datetime.strftime("%I:%M %p")  # Format: "02:30 PM" (12-hour clock)
+        # Validate user inputs
+        if not first_name or not last_name or not email or not mobile:
+            QMessageBox.warning(self, 'Lỗi', 'Vui lòng nhập đầy đủ thông tin cần thiết.')
+            return
 
-        # File paths
+        # Prepare the booking file path
         booking_file_path = "../dataset/booking_data.json"
         os.makedirs(os.path.dirname(booking_file_path), exist_ok=True)
 
-        # Read the existing booking data (if any) from JSON
         book_list = []
+        max_id = 0  # Track the maximum ID found
         if os.path.exists(booking_file_path):
             with open(booking_file_path, "r", encoding="utf-8") as f:
                 try:
                     book_list = json.load(f)
-                    if not isinstance(book_list, list):
+                    if isinstance(book_list, list):
+                        # Find the maximum existing ID in the booking list
+                        max_id = max((booking["id"] for booking in book_list if "id" in booking), default=0)
+                    else:
                         book_list = []
                 except json.JSONDecodeError:
                     book_list = []
 
-        # Add a new booking entry and include date and time
+        # Create a new booking entry
+        current_datetime = datetime.now()
         new_booking = {
+            "id": max_id + 1,  # Increment the maximum ID
             "first_name": first_name,
             "last_name": last_name,
             "email": email,
             "mobile": mobile,
             "special_note": special_note,
-            "date": selected_date,  # Save the date
-            "time": selected_time  # Save the time
+            "booking_date": current_datetime.strftime("%Y-%m-%d"),
+            "booking_time": current_datetime.strftime("%H:%M:%S"),
         }
         book_list.append(new_booking)
 
-        # Save back to booking_data.json
+        # Save to `booking_data.json`
         with open(booking_file_path, "w", encoding="utf-8") as json_file:
             json.dump(book_list, json_file, indent=4, ensure_ascii=False)
 
         # Notify the user of successful booking
         QMessageBox.information(self, 'Thông báo', 'Đăng ký thành công!')
-        QMessageBox.information(self, 'Thông báo', f'Đã lưu thành công.\nNgày: {selected_date}, Giờ: {selected_time}')
+        QMessageBox.information(self, 'Thông báo',
+                                f'Đã đặt thành công vào ngày {current_datetime.strftime("%Y-%m-%d")} lúc {current_datetime.strftime("%H:%M:%S")}!')
         self.close()

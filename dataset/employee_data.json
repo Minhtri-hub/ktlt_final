@@ -5,7 +5,8 @@
         "EmployeeUsername": "tai01",
         "EmployeePass": "@123",
         "hire_date": "2019-06-20",
-        "working_years": 5
+        "working_years": 5,
+        "salary": "5000000"
     },
     {
         "EmployeeId": 2,
@@ -13,7 +14,8 @@
         "EmployeeUsername": "tam02",
         "EmployeePass": "@123",
         "hire_date": "2022-08-22",
-        "working_years": 2
+        "working_years": 2,
+        "salary": "6500000750000"
     },
     {
         "EmployeeId": 3,
@@ -21,7 +23,8 @@
         "EmployeeUsername": "tam03",
         "EmployeePass": "@123",
         "hire_date": "2023-12-12",
-        "working_years": 1
+        "working_years": 1,
+        "salary": "7500000"
     },
     {
         "EmployeeId": 4,
@@ -29,6 +32,7 @@
         "EmployeeUsername": "son01",
         "EmployeePass": "@123",
         "hire_date": "2021-02-01",
-        "working_years": 4
+        "working_years": 4,
+        "salary": "5500000"
     }
 ]

@@ -1,14 +1,14 @@
 from PyQt6.QtWidgets import QMessageBox
 from UILogin.LoginEmployee import Ui_MainWindow
 from data.Import_data_from_json import get_data_from_json
-from uiManagement.BookingManagementEx import BookingManagementEx
+from uiManagement.ManagementEx import ManagementEx
 
 class LoginEmployeeEx(Ui_MainWindow):
     def setupUi(self, MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
         self.setupSignalAndSlot()
-        self.employees = get_data_from_json("employee_data.json")
+        self.employees = get_data_from_json("../dataset/employee_data.json")
 
     def setupSignalAndSlot(self):
         self.pushButtonLoginEmployee.clicked.connect(self.handle_login_employee)
@@ -35,7 +35,7 @@ class LoginEmployeeEx(Ui_MainWindow):
             )
             print(f"Đăng nhập thành công! Chào mừng {user.get('EmployeeName')}")
 
-            self.booking_management = BookingManagementEx()
+            self.booking_management = ManagementEx()
             self.booking_management.showWindow()
 
             self.MainWindow.close()

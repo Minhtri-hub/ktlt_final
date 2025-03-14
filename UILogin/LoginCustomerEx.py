@@ -1,4 +1,4 @@
-from UILogin.Login import Ui_MainWindow
+from UILogin.LoginCustomer import Ui_MainWindow
 from UiBooking.CheckTableEx import CheckTableEx
 from data.Import_data_from_json import get_data_from_json
 from PyQt6.QtWidgets import QMessageBox

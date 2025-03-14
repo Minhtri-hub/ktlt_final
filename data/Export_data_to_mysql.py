@@ -61,23 +61,27 @@ def sync_booking_data(cursor):
         print("File JSON không hợp lệ:", e)
         return
 
+    # Insert statement now includes all placeholders for columns: first_name, last_name, email, mobile, special_note, date, time
     sql_booking = """
-    INSERT INTO booking (first_name, last_name, email, mobile, special_note)
-    VALUES (%s, %s, %s, %s, %s)
+    INSERT INTO booking (first_name, last_name, email, mobile, special_note, date, time)
+    VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
 
     for b in booking_list:
-        val2 = (
+        # Each value must correspond to a column in the SQL query
+        val = (
             b.get("first_name", ""),
             b.get("last_name", ""),
             b.get("email", ""),
             b.get("mobile", ""),
-            b.get("special_note", "")
+            b.get("special_note", ""),
+            b.get("date", "0000-00-00"),  # Default value for date
+            b.get("time", "00:00:00")  # Default value for time
         )
         try:
-            cursor.execute(sql_booking, val2)
+            cursor.execute(sql_booking, val)
         except mysql.connector.Error as e:
-            print(f"Lỗi khi chèn booking {val2}: {e}")
+            print(f"Lỗi khi chèn booking {val}: {e}")
 
     print("Đồng bộ booking_data.json -> MySQL (bảng booking) thành công!")
 

@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'C:\Users\nguye\PycharmProjects\ktlt_final\UILogin\Login.ui'
+# Form implementation generated from reading ui file 'C:\Users\nguye\PycharmProjects\ktlt_final\UILogin\LoginCustomer.ui'
 #
 # Created by: PyQt6 UI code generator 6.8.0
 #

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1507</width>
-    <height>838</height>
+    <height>1201</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,7 +53,7 @@ color: rgb(255, 255, 255);</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="groupBox_3">
        <property name="font">
         <font>
          <pointsize>12</pointsize>
@@ -62,25 +62,7 @@ color: rgb(255, 255, 255);</string>
        <property name="title">
         <string>Employee Management</string>
        </property>
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>310</y>
-          <width>681</width>
-          <height>321</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="title">
-         <string>Booking Management</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="lineEditEmployeeID">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -90,10 +72,10 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_8">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -111,7 +93,7 @@ color: rgb(255, 255, 255);</string>
          <string>Employee ID</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="label_9">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -129,7 +111,7 @@ color: rgb(255, 255, 255);</string>
          <string>Employee Name</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="lineEditEmployeeName">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -139,10 +121,10 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_10">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -157,10 +139,10 @@ color: rgb(255, 255, 255);</string>
          </font>
         </property>
         <property name="text">
-         <string>User Name</string>
+         <string>UserName</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="lineEditEmployeeUserName">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -170,10 +152,10 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_11">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -191,7 +173,7 @@ color: rgb(255, 255, 255);</string>
          <string>Password</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_4">
+       <widget class="QLineEdit" name="lineEditEmployeePass">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -201,10 +183,10 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_12">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -222,7 +204,7 @@ color: rgb(255, 255, 255);</string>
          <string>Hire Date</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_5">
+       <widget class="QLineEdit" name="lineEditEmployeeHireDate">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -232,10 +214,11 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(85, 170, 0);</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_13">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -250,520 +233,35 @@ color: rgb(255, 255, 255);</string>
          </font>
         </property>
         <property name="text">
-         <string>Hire Date</string>
+         <string>Salary</string>
         </property>
        </widget>
-       <widget class="QGroupBox" name="groupBox_3">
+       <widget class="QLineEdit" name="lineEditEmployeeSalary">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>709</width>
-          <height>639</height>
+          <x>220</x>
+          <y>240</y>
+          <width>361</width>
+          <height>22</height>
          </rect>
         </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
         </property>
-        <property name="title">
-         <string>Employee Management</string>
+       </widget>
+       <widget class="QTableWidget" name="tableWidgetEmployee">
+        <property name="geometry">
+         <rect>
+          <x>-20</x>
+          <y>320</y>
+          <width>731</width>
+          <height>331</height>
+         </rect>
         </property>
-        <widget class="QGroupBox" name="groupBox_4">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>310</y>
-           <width>681</width>
-           <height>321</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="title">
-          <string>Booking Management</string>
-         </property>
-         <widget class="QLabel" name="label_14">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>40</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Booking ID</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditBookingID">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>40</y>
-            <width>211</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_15">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>80</y>
-            <width>111</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Full Name</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_16">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>180</y>
-            <width>91</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Mobile</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_17">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>130</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Email</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_18">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>230</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Special note</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_19">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>70</y>
-            <width>111</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Seat type</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_20">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>30</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Booking Date</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_21">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>120</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Booking Time</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_22">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>170</y>
-            <width>121</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Total customers</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditFullName">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>90</y>
-            <width>211</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditEmail">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>130</y>
-            <width>211</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditMobile">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>180</y>
-            <width>211</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditNote">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>230</y>
-            <width>531</width>
-            <height>71</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditBookingDate">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>30</y>
-            <width>191</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditBookingTime">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>120</y>
-            <width>191</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEditTotalCustomers">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>170</y>
-            <width>191</width>
-            <height>22</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="comboBoxSeatType">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>70</y>
-            <width>191</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 0);</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Private</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Counter</string>
-           </property>
-          </item>
-         </widget>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeeID">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>40</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_8">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>40</y>
-           <width>111</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Employee ID</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_9">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>80</y>
-           <width>141</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Employee Name</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeeName">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>80</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_10">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>120</y>
-           <width>141</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>UserName</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeeUserName">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>120</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_11">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>160</y>
-           <width>141</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Password</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeePass">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>160</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_12">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>200</y>
-           <width>141</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Hire Date</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeeHireDate">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>200</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);
-background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_13">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>240</y>
-           <width>141</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Salary</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEditEmployeeSalary">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>240</y>
-           <width>361</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(85, 170, 0);</string>
-         </property>
-        </widget>
+        <property name="styleSheet">
+         <string notr="true">
+background-color: rgb(85, 85, 0);</string>
+        </property>
        </widget>
       </widget>
      </item>
@@ -780,7 +278,7 @@ background-color: rgb(85, 170, 0);</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButtonSave">
+      <widget class="QPushButton" name="pushButtonSaveEmployee">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 85, 0);
 color: rgb(255, 255, 255);</string>
@@ -791,7 +289,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonCreate">
+      <widget class="QPushButton" name="pushButtonCreateEmployee">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 85, 0);
 color: rgb(255, 255, 255);</string>
@@ -802,7 +300,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonUpdate">
+      <widget class="QPushButton" name="pushButtonUpdateEmployee">
        <property name="styleSheet">
         <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(0, 85, 0);</string>
@@ -813,7 +311,7 @@ background-color: rgb(0, 85, 0);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonDelete">
+      <widget class="QPushButton" name="pushButtonDeleteEmployee">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(0, 85, 0);
 color: rgb(255, 255, 255);</string>
@@ -825,27 +323,384 @@ color: rgb(255, 255, 255);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>70</y>
+      <width>731</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="title">
+        <string>Booking Management</string>
+       </property>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Booking ID</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditBookingID">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>40</y>
+          <width>211</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>80</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Full Name</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>180</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Mobile</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>130</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>230</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Special note</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>80</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Booking Date</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>130</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Booking Time</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>180</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Total customers</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditFullName">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>90</y>
+          <width>211</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditEmail">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>130</y>
+          <width>211</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditMobile">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>180</y>
+          <width>211</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditNote">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>230</y>
+          <width>531</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditBookingDate">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>80</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditBookingTime">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>130</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditTotalCustomers">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>180</y>
+          <width>191</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidgetBooking">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>320</y>
+          <width>731</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+background-color: rgb(85, 85, 0);</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBoxSeatType">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>40</y>
+          <width>191</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(85, 170, 0);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Private</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Counter</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>30</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Seat type</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>70</y>
-      <width>721</width>
-      <height>711</height>
+      <x>730</x>
+      <y>710</y>
+      <width>731</width>
+      <height>71</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QListWidget" name="listWidget">
+      <widget class="QPushButton" name="pushButtonSaveBooking">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 170, 0);</string>
+        <string notr="true">background-color: rgb(0, 85, 0);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Save</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QPushButton" name="pushButtonCreateBooking">
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(170, 170, 0);</string>
+        <string notr="true">background-color: rgb(0, 85, 0);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Create</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonUpdateBooking">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 85, 0);</string>
+       </property>
+       <property name="text">
+        <string>Update</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonDeleteBooking">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 85, 0);
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Delete</string>
        </property>
       </widget>
      </item>

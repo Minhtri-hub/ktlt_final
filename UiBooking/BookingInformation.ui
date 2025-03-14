@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1168</width>
-    <height>1039</height>
+    <width>1572</width>
+    <height>1221</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>10</y>
+      <x>350</x>
+      <y>100</y>
       <width>551</width>
       <height>581</height>
      </rect>
@@ -38,7 +38,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>210</y>
+       <y>160</y>
        <width>127</width>
        <height>251</height>
       </rect>
@@ -114,8 +114,8 @@
     <widget class="QLineEdit" name="lineEditFirstName">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>220</y>
+       <x>150</x>
+       <y>170</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -134,8 +134,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QLineEdit" name="lineEditLastName">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>270</y>
+       <x>150</x>
+       <y>220</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -148,8 +148,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QLineEdit" name="lineEditEmail">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>320</y>
+       <x>150</x>
+       <y>280</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -165,8 +165,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QLineEdit" name="lineEditMobile">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>370</y>
+       <x>150</x>
+       <y>340</y>
        <width>371</width>
        <height>31</height>
       </rect>
@@ -182,8 +182,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QLineEdit" name="lineEditSpecialNote">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>430</y>
+       <x>150</x>
+       <y>380</y>
        <width>371</width>
        <height>71</height>
       </rect>
@@ -212,8 +212,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QCheckBox" name="checkBoxReceiveMenu">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>520</y>
+       <x>60</x>
+       <y>490</y>
        <width>431</width>
        <height>21</height>
       </rect>
@@ -231,8 +231,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QCheckBox" name="checkBoxConfirmBooking">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>550</y>
+       <x>100</x>
+       <y>530</y>
        <width>431</width>
        <height>21</height>
       </rect>
@@ -245,84 +245,6 @@ color: rgb(85, 0, 0);</string>
      </property>
      <property name="text">
       <string>Confirm Booking (Send Email or SMS Notification)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>120</y>
-       <width>55</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Date:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEditDate">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>120</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-
-color: rgb(85, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>170</y>
-       <width>55</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Time:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEditTime">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>170</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-
-color: rgb(85, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -354,8 +276,8 @@ color: rgb(85, 0, 0);</string>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>590</y>
+      <x>350</x>
+      <y>680</y>
       <width>551</width>
       <height>91</height>
      </rect>
@@ -367,22 +289,6 @@ color: rgb(85, 0, 0);</string>
     <property name="title">
      <string/>
     </property>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>10</y>
-       <width>351</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(0, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;By clicking this button, I agreed with these General Term &amp;amp; Conditions&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButtonBookingTable">
      <property name="geometry">
       <rect>
@@ -408,6 +314,19 @@ color: rgb(255, 255, 255);</string>
       <string>Booking Your Table</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>341</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>By clicking this button, I agreed with these General Term &amp; Conditions</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -415,7 +334,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1168</width>
+     <width>1572</width>
      <height>26</height>
     </rect>
    </property>

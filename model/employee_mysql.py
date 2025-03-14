@@ -4,7 +4,7 @@ from data.mysql_connector import conn
 cursor = conn.cursor()
 
 # Truy vấn dữ liệu từ bảng employee
-sql = "SELECT EmployeeId, EmployeeName, EmployeeUsername, EmployeePass, hire_date, working_years FROM customermanagement.employee"
+sql = "SELECT EmployeeId, EmployeeName, EmployeeUsername, EmployeePass, hire_date, working_years, salary FROM customermanagement.employee"
 cursor.execute(sql)
 dataset = cursor.fetchall()
 
@@ -19,7 +19,8 @@ for item in dataset:
         "EmployeeUsername": item[2],
         "EmployeePass": item[3],  # Có thể mã hóa mật khẩu ở đây nếu cần
         "hire_date": item[4].strftime('%Y-%m-%d') if item[4] else None,
-        "working_years": item[5]
+        "working_years": item[5],
+        "salary":item[6]
     })
 # Lưu dữ liệu vào file JSON
 json_file_path = "../dataset/employee_data.json"

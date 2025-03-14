@@ -1,17 +1,9 @@
 {
     "01/01/2025": {
-        "counter": [
-            {
-                "time": "4:00 PM",
-                "people": 1
-            },
-            {
-                "time": "4:00 PM",
-                "people": 1
-            }
-        ],
+        "counter": [],
         "private": [
             {
+                "id": 1,
                 "time": "4:00 PM",
                 "people": 1
             }
