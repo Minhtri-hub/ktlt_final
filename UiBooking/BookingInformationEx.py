@@ -19,14 +19,13 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         self.pushButtonBookingTable.clicked.connect(self.handle_booking)
 
     def handle_booking(self):
-        first_name = self.lineEditFirstName.text().strip()
-        last_name = self.lineEditLastName.text().strip()
+        full_name = self.lineEditFullName.text().strip()
         email = self.lineEditEmail.text().strip()
         mobile = self.lineEditMobile.text().strip()
         special_note = self.lineEditSpecialNote.text().strip()
 
         # Validate user inputs
-        if not first_name or not last_name or not email or not mobile:
+        if not full_name or not email or not mobile:
             QMessageBox.warning(self, 'Lỗi', 'Vui lòng nhập đầy đủ thông tin cần thiết.')
             return
 
@@ -52,8 +51,7 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         current_datetime = datetime.now()
         new_booking = {
             "id": max_id + 1,  # Increment the maximum ID
-            "first_name": first_name,
-            "last_name": last_name,
+            "full_name": full_name,
             "email": email,
             "mobile": mobile,
             "special_note": special_note,

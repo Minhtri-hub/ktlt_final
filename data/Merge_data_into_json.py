@@ -60,15 +60,14 @@ def merge_checktable_and_booking():
                     # Merge item and booking info
                     merged_entry = {
                         "id": c_id,
-                        "date": date_str,
-                        "seat_type": seat_type,
-                        "time": item.get("time"),
-                        "people": item.get("people"),
-                        "first_name": bk_info.get("first_name", ""),
-                        "last_name": bk_info.get("last_name", ""),
+                        "full_name": bk_info.get("full_name", ""),
                         "email": bk_info.get("email", ""),
                         "mobile": bk_info.get("mobile", ""),
-                        "special_note": bk_info.get("special_note", "")
+                        "seat_type": seat_type,
+                        "booking_time": item.get("time"),
+                        "total_customers": item.get("people"),
+                        "special_note": bk_info.get("special_note", ""),
+                        "date": date_str,
                     }
                     merged_list.append(merged_entry)
 
@@ -79,6 +78,7 @@ def merge_checktable_and_booking():
         print(f"Đã merge {len(merged_list)} dòng vào {merged_path}")
     except Exception as e:
         print(f"Lỗi khi lưu dữ liệu vào {merged_path}: {e}")
+
 
 
 if __name__ == "__main__":

@@ -1,49 +1,13 @@
 [
     {
         "id": 1,
-        "date": "30/03/2025",
-        "seat_type": "private",
-        "time": "5:15 PM",
-        "people": 1,
-        "first_name": "minh tri",
-        "last_name": "nguyen quach",
-        "email": "nguyenquachminhtri",
-        "mobile": "0909367741",
-        "special_note": "birthday"
-    },
-    {
-        "id": 2,
-        "date": "09/05/2025",
+        "full_name": "Nguyễn Quách Minh Trí",
+        "email": "nguyenquachminhtri@gmail.com",
+        "mobile": "0903762652",
         "seat_type": "counter",
-        "time": "6:15 PM",
-        "people": 5,
-        "first_name": "minh đức",
-        "last_name": "nguyễn",
-        "email": "nguyenminhduc@gmail.com",
-        "mobile": "0907845444",
-        "special_note": "anni"
-    },
-    {
-        "id": 3,
-        "date": "01/05/2025",
-        "seat_type": "counter",
-        "time": "10:30 PM",
-        "people": 1,
-        "first_name": "mai phương",
-        "last_name": "nguyễn",
-        "email": "maiphuong@gmail.com",
-        "mobile": "0906785875",
-        "special_note": "anni"
-    },
-    {
-        "id": 4,
-        "full_name": "ko có",
-        "email": "nguyenquachminhtri",
-        "mobile": "0909367741",
-        "seat_type": "Private",
-        "booking_time": "5:15 PM",
+        "booking_time": "4:00 PM",
         "total_customers": 1,
         "special_note": "birthday",
-        "date": "30/03/2025"
+        "date": "07/05/2025"
     }
 ]

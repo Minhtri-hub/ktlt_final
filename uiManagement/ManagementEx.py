@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import pyqtSlot
 from uiManagement.Management import Ui_MainWindow
+from datetime import datetime
 
 
 class ManagementEx(QMainWindow, Ui_MainWindow):
@@ -98,16 +99,15 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         # Iterate over the list and extract the necessary information
         for booking in merged_data:
             b_id = str(booking.get("id", ""))  # Booking ID
-            first_name = booking.get("first_name", "")
-            last_name = booking.get("last_name", "")
-            full_name = f"{first_name} {last_name}".strip()  # Combine names safely
+            full_name = booking.get("full_name","")
             email = booking.get("email", "")
             mobile = booking.get("mobile", "")
             seat_type = booking.get("seat_type", "")  # Seat type
-            booking_time = booking.get("time", "")
-            total_customers = str(booking.get("people", ""))  # Total customers
-            special_note = booking.get("special_note", "")
-            booking_date = booking.get("date", "")  # Booking date
+            booking_time = booking.get("booking_time", "").strip()  # Retrieve and clean booking time
+            booking_date = booking.get("date", "").strip()  # Retrieve and clean booking date
+            total_customers = str(booking.get("total_customers", 0))  # Total customers as string
+            special_note = booking.get("special_note", "").strip()  # Retrieve and clean special note
+
 
             # Append the booking row to our list
             all_bookings.append([
@@ -163,6 +163,8 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.lineEditNote.setText(b_note)
         self.lineEditBookingDate.setText(b_date)  # Set the booking date
 
+
+
     def create_employee(self):
         e_id = self.lineEditEmployeeID.text().strip()  # Employee ID
         e_name = self.lineEditEmployeeName.text().strip()  # Employee Name
@@ -171,44 +173,67 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         e_hire = self.lineEditEmployeeHireDate.text().strip()  # Hire Date
         e_sal = self.lineEditEmployeeSalary.text().strip()  # Salary
 
-        if not e_id or not e_name:  # Validate required fields
-            QMessageBox.warning(self, "Error", "Employee ID và Name không được để trống!")
+        # Check if all inputs are provided
+        if not e_id or not e_name or not e_user or not e_pass or not e_hire or not e_sal:
+            QMessageBox.warning(self, "Error", "Vui lòng nhập đầy đủ thông tin!")
             return
 
+        # Ensure ID and Salary are integers, and Salary is positive
         try:
-            e_id = int(e_id)  # Ensure ID is an integer
-            e_sal = int(e_sal)  # Ensure salary is a valid number
+            e_id = int(e_id)
+            e_sal = int(e_sal)
+            if e_sal <= 0:
+                raise ValueError("Lương phải lớn hơn 0!")
         except ValueError:
-            QMessageBox.warning(self, "Error", "Employee ID và Salary phải là số nguyên!")
+            QMessageBox.warning(self, "Error",
+                                "Employee ID và Salary phải là số nguyên hợp lệ và Lương phải lớn hơn 0.")
             return
 
+        # Ensure Hire Date is valid
+        try:
+            hire_date_obj = datetime.strptime(e_hire, "%Y-%m-%d")  # Convert hire date to datetime object
+            current_date = datetime.now()  # Get the current date
+            # Calculate the difference between the current date and the hire date
+            working_years = (current_date - hire_date_obj).days // 365  # Convert days to years
+        except ValueError:
+            QMessageBox.warning(self, "Error",
+                                "Ngày tuyển dụng không hợp lệ! Vui lòng nhập ngày theo định dạng YYYY-MM-DD.")
+            return
+
+        # Load existing data from JSON file
         path = "../dataset/employee_data.json"
-        if os.path.exists(path):  # Check if JSON exists
+        if os.path.exists(path):  # Check if the file exists
             with open(path, "r", encoding="utf-8") as f:
                 try:
-                    employees = json.load(f)
-                except:
+                    employees = json.load(f)  # Load existing employees
+                    if not isinstance(employees, list):  # Ensure it's a list
+                        employees = []
+                except json.JSONDecodeError:  # Handle malformed JSON
                     employees = []
         else:
             employees = []
 
-        # Check if ID is already in use
-        if any(int(emp.get("EmployeeId")) == e_id for emp in employees):
+        # Check for duplicate Employee ID
+        if any(emp.get("EmployeeId") == e_id for emp in employees):
             QMessageBox.warning(self, "Error", f"Employee ID: {e_id} đã tồn tại!")
             return
 
-        # Create new employee JSON entry
+        # Create a new employee entry
         new_emp = {
             "EmployeeId": e_id,
             "EmployeeName": e_name,
             "EmployeeUsername": e_user,
             "EmployeePass": e_pass,
             "hire_date": e_hire,
-            "working_years": 0,  # Default working years to 0
+            "working_years": working_years,  # Add calculated working years
             "salary": e_sal
         }
 
+        # Append the new employee to the list
         employees.append(new_emp)
+
+        # Save updated data back to JSON
+        os.makedirs(os.path.dirname(path), exist_ok=True)  # Ensure directory exists
         with open(path, "w", encoding="utf-8") as f:
             json.dump(employees, f, indent=4, ensure_ascii=False)
 
@@ -216,7 +241,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         self.load_employee_data()  # Reload employee table
 
     def update_employee(self):
-        e_id = self.lineEditEmployeeID.text().strip()
+        e_id = self.lineEditEmployeeID.text().strip()  # Get the entered Employee ID
 
         if not e_id:
             QMessageBox.warning(self, "Error", "Vui lòng nhập Employee ID để cập nhật!")
@@ -224,32 +249,34 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
         path = "../dataset/employee_data.json"
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu employee_data.json!")
+            QMessageBox.warning(self, "Error", "Không tìm thấy employee_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
-                employees = json.load(f)
+                employees = json.load(f)  # Load employees from JSON file
             except json.JSONDecodeError:
                 QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
                 return
 
         updated = False
         for emp in employees:
-            if emp.get("id") == e_id:
-                emp["name"] = self.lineEditEmployeeName.text().strip()
-                emp["username"] = self.lineEditEmployeeUserName.text().strip()
-                emp["password"] = self.lineEditEmployeePass.text().strip()
+            # Match by EmployeeId (JSON key needs to match the field name)
+            if str(emp.get("EmployeeId")) == e_id:
+                emp["EmployeeName"] = self.lineEditEmployeeName.text().strip()
+                emp["EmployeeUsername"] = self.lineEditEmployeeUserName.text().strip()
+                emp["EmployeePass"] = self.lineEditEmployeePass.text().strip()
                 emp["hire_date"] = self.lineEditEmployeeHireDate.text().strip()
                 emp["salary"] = self.lineEditEmployeeSalary.text().strip()
                 updated = True
                 break
 
         if updated:
+            # Save updated employee data back to the JSON file
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(employees, f, indent=4, ensure_ascii=False)
             QMessageBox.information(self, "Success", "Cập nhật nhân viên thành công!")
-            self.load_employee_data()  # Tải lại dữ liệu lên bảng
+            self.load_employee_data()  # Reload employee data (if needed)
         else:
             QMessageBox.warning(self, "Error", f"Không tìm thấy Employee ID: {e_id}")
 
