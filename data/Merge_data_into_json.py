@@ -6,7 +6,7 @@ def merge_checktable_and_booking():
     # File paths for the input and output files
     check_path = "../dataset/checktable_data.json"
     booking_path = "../dataset/booking_data.json"
-    merged_path = "../dataset/merged_data.json"
+    merged_path = "../dataset/reservation_data.json"
 
     # Validate file existence
     if not os.path.exists(check_path):

@@ -67,23 +67,23 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
     def load_booking_data(self):
         self.tableWidgetBooking.setRowCount(0)  # Clear existing rows
-        path = "../dataset/merged_data.json"  # Path to the merged JSON file
+        path = "../dataset/reservation_data.json"  # Path to the merged JSON file
 
         # Check if the file exists
         if not os.path.exists(path):
-            print("Error: merged_data.json file does not exist")
+            print("Error: reservation_data.json file does not exist")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 merged_data = json.load(f)  # Load the JSON content
             except json.JSONDecodeError:
-                print("Error: Invalid JSON content in merged_data.json")
+                print("Error: Invalid JSON content in reservation_data.json")
                 return
 
         # Validate that the root structure is a list
         if not isinstance(merged_data, list):
-            print("Error: Expected a list in merged_data.json, but received something else.")
+            print("Error: Expected a list in reservation_data.json, but received something else.")
             return
 
         # Prepare the table
@@ -335,7 +335,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Booking ID và Total Customers phải là số nguyên!")
             return
 
-        path = "../dataset/merged_data.json"
+        path = "../dataset/reservation_data.json"
         if os.path.exists(path):
             with open(path, "r", encoding="utf-8") as f:
                 try:
@@ -375,9 +375,9 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để cập nhật!")
             return
 
-        path = "../dataset/merged_data.json"  # Use merged_data.json
+        path = "../dataset/reservation_data.json"  # Use reservation_data.json
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu merged_data.json!")
+            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu reservation_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
@@ -418,9 +418,9 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để xóa!")
             return
 
-        path = "../dataset/merged_data.json"  # Use merged_data.json file
+        path = "../dataset/reservation_data.json"  # Use reservation_data.json file
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu merged_data.json!")
+            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu reservation_data.json!")
             return
 
         with open(path, "r", encoding="utf-8") as f:

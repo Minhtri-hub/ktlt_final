@@ -13,13 +13,10 @@ def export_booking_to_json():
     for item in dataset:
         data_list.append({
             "booking_id": item[0],
-            "first_name": item[1],
-            "last_name": item[2],
-            "email": item[3],
-            "mobile": item[4],
-            "special_note": item[5],
-            "booking_date": item[6],  # Add date field from database
-            "booking_time": item[7]  # Add time field from database
+            "full_name":item[1],
+            "email": item[2],
+            "mobile": item[3],
+            "special_note": item[4],
         })
 
     # Output JSON file path
