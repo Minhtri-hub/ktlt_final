@@ -34,7 +34,7 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         if self.checkBoxReceiveMenu.isChecked():
             self.menu_dialog = MENUGIAODIENEX()
             self.menu_dialog.showWindow()
-            # ... phần còn lại của handle_booking ...
+
 
         if self.checkBoxReceiveMenu.isChecked():
             pass
@@ -53,7 +53,7 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         os.makedirs(os.path.dirname(booking_file_path), exist_ok=True)
 
         book_list = []
-        max_id = 0  # Track the maximum ID found
+        max_id = 0
         if os.path.exists(booking_file_path):
             with open(booking_file_path, "r", encoding="utf-8") as f:
                 try:

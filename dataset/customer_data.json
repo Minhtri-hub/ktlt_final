@@ -62,5 +62,13 @@
         "email": "m",
         "phone_number": "mm",
         "name": "m"
+    },
+    {
+        "id": 9,
+        "username": "* Username",
+        "password": "* Pass",
+        "email": "* Email",
+        "phone_number": "* Phone Number",
+        "name": "* Full Name"
     }
 ]
