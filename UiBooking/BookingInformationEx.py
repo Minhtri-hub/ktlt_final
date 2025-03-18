@@ -22,7 +22,14 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
     def isChecked(self):
         if self.checkBoxConfirmBooking.isChecked():
             self.pushButtonBookingTable.setEnabled(True)
+        else:
+            self.pushButtonBookingTable.setEnabled(False)
 
+    def openMenu(self, state):
+
+        if state == Qt.CheckState.Checked.value:
+            menu_dialog = ()
+            menu_dialog.exec()  # Hiển thị menu dưới dạng modal dialog
 
     def handle_booking(self):
         if self.checkBoxReceiveMenu.isChecked():

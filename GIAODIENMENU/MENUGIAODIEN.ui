@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1244</width>
+    <height>1003</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(240, 237, 213);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-1011</y>
+         <width>1199</width>
+         <height>10302</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(240, 237, 213);</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt; color:#005500;&quot;&gt;MENU&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(240, 237, 213);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111413.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111446.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111457.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111513.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111529.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111540.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111555.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111605.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111617.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111631.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111640.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\GIAODIENMENU\image\Screenshot 2025-03-18 111651.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1244</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
