@@ -8,5 +8,25 @@
             }
         ],
         "private": []
+    },
+    "04/04/2025": {
+        "counter": [],
+        "private": [
+            {
+                "id": 2,
+                "time": "6:15 PM",
+                "people": 1
+            }
+        ]
+    },
+    "02/04/2025": {
+        "counter": [],
+        "private": [
+            {
+                "id": 3,
+                "time": "6:00 PM",
+                "people": 5
+            }
+        ]
     }
 }

@@ -1,6 +1,7 @@
 import json
 import os
 import mysql.connector
+from datetime import datetime
 
 
 def sync_customer_data(cursor):
@@ -47,12 +48,20 @@ def sync_customer_data(cursor):
     print("Đồng bộ customer_data.json -> MySQL (bảng customer) thành công!")
 
 
+import os
+import json
+import mysql.connector
+
+
 def sync_booking_data(cursor):
     json_file_path = "../dataset/booking_data.json"
+
+    # Check if the JSON file exists
     if not os.path.exists(json_file_path):
         print(f"Không tìm thấy file {json_file_path}")
         return
 
+    # Load JSON data
     try:
         with open(json_file_path, "r", encoding="utf-8") as f:
             booking_list = json.load(f)
@@ -64,24 +73,38 @@ def sync_booking_data(cursor):
         return
 
     sql_booking = """
-    INSERT INTO booking (booking_id,full_name, email, mobile, special_note)
-    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO booking (booking_id, full_name, email, mobile, special_note)
+    VALUES (%s, %s, %s, %s, %s)
     """
 
     for b in booking_list:
+        # Prepare values with fallback defaults for safety
         val = (
-            b.get("id", ""),
+            b.get("id"),
             b.get("full_name", ""),
             b.get("email", ""),
             b.get("mobile", ""),
             b.get("special_note", ""),
         )
+
+        # Check if 'id' is None or invalid
+        if val[0] is None:
+            print(f"Bỏ qua booking do thiếu 'id': {b}")
+            continue  # Skip records with missing ID
+
         try:
+            # Attempt to execute the SQL query
             cursor.execute(sql_booking, val)
+        except mysql.connector.IntegrityError as e:
+            print(f"Lỗi ràng buộc khi chèn booking {val}: {e}")
+        except mysql.connector.DataError as e:
+            print(f"Lỗi dữ liệu khi chèn booking {val}: {e}")
         except mysql.connector.Error as e:
             print(f"Lỗi khi chèn booking {val}: {e}")
 
     print("Đồng bộ booking_data.json -> MySQL (bảng booking) thành công!")
+
+
 
 
 def sync_employee_data(cursor):
@@ -154,27 +177,42 @@ def sync_checktable_data(cursor):
     VALUES (%s, %s, %s, %s, %s)
     """
 
-    for date, data in checktable.items():  # Iterate over each date
-        for entry in data.get("counter", []):  # Process "counter" group entries
+    for date, data in checktable.items():
+        try:
+            formatted_date = datetime.strptime(date, "%d/%m/%Y").strftime("%Y-%m-%d")
+        except ValueError:
+            formatted_date = None
+
+        for entry in data.get("counter", []):
+            try:
+                formatted_time = datetime.strptime(entry.get("time", ""), "%I:%M %p").strftime("%H:%M:%S") if entry.get("time") else None
+            except ValueError:
+                formatted_time = None
+
             val = (
-                date,  # Use the date key
-                entry.get("id", 0),  # Extract "id"
-                entry.get("time", ""),  # Extract "time"
-                entry.get("people", 0),  # Extract "people"
-                "counter"  # Set as "counter" type
+                formatted_date,
+                entry.get("id"),
+                formatted_time,
+                entry.get("people"),
+                "counter"
             )
             try:
                 cursor.execute(sql_checktable, val)
             except mysql.connector.Error as e:
                 print(f"Lỗi khi chèn counter {val}: {e}")
 
-        for entry in data.get("private", []):  # Process "private" group entries
+        for entry in data.get("private", []):
+            try:
+                formatted_time = datetime.strptime(entry.get("time", ""), "%I:%M %p").strftime("%H:%M:%S") if entry.get("time") else None
+            except ValueError:
+                formatted_time = None
+
             val = (
-                date,  # Use the date key
-                entry.get("id", 0),  # Extract "id"
-                entry.get("time", ""),  # Extract "time"
-                entry.get("people", 0),  # Extract "people"
-                "private"  # Set as "private" type
+                formatted_date,
+                entry.get("id"),
+                formatted_time,
+                entry.get("people"),
+                "private"
             )
             try:
                 cursor.execute(sql_checktable, val)
@@ -183,6 +221,77 @@ def sync_checktable_data(cursor):
 
     print("Đồng bộ checktable_data.json -> MySQL (bảng checktable) thành công!")
 
+
+
+
+def sync_reservation_data(cursor):
+    json_file_path = "../dataset/reservation_data.json"
+
+    if not os.path.exists(json_file_path):
+        print(f"Không tìm thấy file {json_file_path}")
+        return
+
+    try:
+        with open(json_file_path, "r", encoding="utf-8") as f:
+            reservation_list = json.load(f)
+            if not isinstance(reservation_list, list):
+                print("Cấu trúc JSON không phải dạng list!")
+                return
+    except json.JSONDecodeError as e:
+        print("File JSON không hợp lệ:", e)
+        return
+
+    sql_reservation = """
+    INSERT INTO reservation (id, full_name, email, mobile, seat_type, booking_time, total_customers, special_note, date)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+    ON DUPLICATE KEY UPDATE
+       full_name=VALUES(full_name),
+       email=VALUES(email),
+       mobile=VALUES(mobile),
+       seat_type=VALUES(seat_type),
+       booking_time=VALUES(booking_time),
+       total_customers=VALUES(total_customers),
+       special_note=VALUES(special_note),
+       date=VALUES(date)
+    """
+
+    for res in reservation_list:
+        # Convert 'date' field to MySQL-compatible format
+        try:
+            res_date = datetime.strptime(res.get("date", ""), "%d/%m/%Y").strftime("%Y-%m-%d") if res.get(
+                "date") else None
+        except ValueError:
+            print(f"Lỗi định dạng ngày không hợp lệ: {res.get('date')}")
+            res_date = None
+
+        # Convert 'booking_time' field to MySQL-compatible 24-hour format
+        try:
+            res_time = datetime.strptime(res.get("booking_time", ""), "%I:%M %p").strftime("%H:%M:%S") if res.get(
+                "booking_time") else None
+        except ValueError:
+            print(f"Lỗi định dạng giờ không hợp lệ: {res.get('booking_time')}")
+            res_time = None
+
+        # Preparing reservation values for database insertion
+        val = (
+            res.get("id"),
+            res.get("full_name"),
+            res.get("email"),
+            res.get("mobile"),
+            res.get("seat_type"),
+            res_time,
+            res.get("total_customers"),
+            res.get("special_note"),
+            res_date
+        )
+
+        # Insert reservation and handle potential database errors
+        try:
+            cursor.execute(sql_reservation, val)
+        except mysql.connector.Error as e:
+            print(f"Lỗi khi chèn/cập nhật reservation {val}: {e}")
+
+    print("Đồng bộ reservation_data.json -> MySQL (bảng reservation) thành công!")
 
 
 def main():
@@ -203,6 +312,7 @@ def main():
     sync_booking_data(cursor)
     sync_employee_data(cursor)
     sync_checktable_data(cursor)
+    sync_reservation_data(cursor)
 
     conn.commit()
     cursor.close()
