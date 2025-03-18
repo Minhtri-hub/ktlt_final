@@ -1,4 +1,7 @@
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
+
+from GIAODIENMENU.MENUGIAODIENEX import MENUGIAODIENEX
 from UiBooking.BookingInformation import Ui_BookingInformation
 import json
 from datetime import datetime
@@ -25,13 +28,14 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         else:
             self.pushButtonBookingTable.setEnabled(False)
 
-    def openMenu(self, state):
-
-        if state == Qt.CheckState.Checked.value:
-            menu_dialog = ()
-            menu_dialog.exec()  # Hiển thị menu dưới dạng modal dialog
 
     def handle_booking(self):
+
+        if self.checkBoxReceiveMenu.isChecked():
+            self.menu_dialog = MENUGIAODIENEX()
+            self.menu_dialog.showWindow()
+            # ... phần còn lại của handle_booking ...
+
         if self.checkBoxReceiveMenu.isChecked():
             pass
         full_name = self.lineEditFullName.text().strip()
