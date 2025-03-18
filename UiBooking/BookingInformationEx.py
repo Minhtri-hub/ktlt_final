@@ -10,15 +10,23 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         super().__init__()
         self.setupUi(self)
         self.setupSignalAndSlot()
+        self.pushButtonBookingTable.setEnabled(False)  # Vô hiệu hóa nút ngay từ đầu
 
     def showWindow(self):
         self.show()
 
     def setupSignalAndSlot(self):
-        # Connect the "Book Table" button to the `handle_booking` slot
+        self.checkBoxConfirmBooking.stateChanged.connect(self.isChecked)
+        self.checkBoxReceiveMenu.stateChanged.connect(self.isChecked)
         self.pushButtonBookingTable.clicked.connect(self.handle_booking)
+    def isChecked(self):
+        if self.checkBoxConfirmBooking.isChecked():
+            self.pushButtonBookingTable.setEnabled(True)
+
 
     def handle_booking(self):
+        if self.checkBoxReceiveMenu.isChecked():
+            pass
         full_name = self.lineEditFullName.text().strip()
         email = self.lineEditEmail.text().strip()
         mobile = self.lineEditMobile.text().strip()

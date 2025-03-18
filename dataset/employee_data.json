@@ -43,5 +43,14 @@
         "hire_date": "2019-06-20",
         "working_years": 0,
         "salary": 7000000
+    },
+    {
+        "EmployeeId": 6,
+        "EmployeeName": "Erik",
+        "EmployeeUsername": "e",
+        "EmployeePass": "123",
+        "hire_date": "2024-12-03",
+        "working_years": 0,
+        "salary": "5.000.000"
     }
 ]
