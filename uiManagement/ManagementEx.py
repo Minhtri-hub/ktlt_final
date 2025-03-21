@@ -98,25 +98,23 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
 
         # Iterate over the list and extract the necessary information
         for booking in merged_data:
-            b_id = str(booking.get("id", ""))  # Booking ID
+            b_id = str(booking.get("id", ""))
             full_name = booking.get("full_name","")
             email = booking.get("email", "")
             mobile = booking.get("mobile", "")
-            seat_type = booking.get("seat_type", "")  # Seat type
-            booking_time = booking.get("booking_time", "").strip()  # Retrieve and clean booking time
-            booking_date = booking.get("date", "").strip()  # Retrieve and clean booking date
-            total_customers = str(booking.get("total_customers", 0))  # Total customers as string
-            special_note = booking.get("special_note", "").strip()  # Retrieve and clean special note
+            seat_type = booking.get("seat_type", "")
+            booking_time = booking.get("booking_time", "").strip()
+            booking_date = booking.get("date", "").strip()
+            total_customers = str(booking.get("total_customers", 0))
+            special_note = booking.get("special_note", "").strip()
 
-
-            # Append the booking row to our list
             all_bookings.append([
                 b_id, full_name, email, mobile,
                 seat_type, booking_time, total_customers, special_note, booking_date
             ])
 
-        # Populate the table widget with the bookings
-        self.tableWidgetBooking.setRowCount(len(all_bookings))  # Set the row count based on data
+
+        self.tableWidgetBooking.setRowCount(len(all_bookings))
         for row, booking in enumerate(all_bookings):
             for col, value in enumerate(booking):
                 self.tableWidgetBooking.setItem(row, col, QTableWidgetItem(value))
@@ -173,49 +171,47 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         e_hire = self.lineEditEmployeeHireDate.text().strip()  # Hire Date
         e_sal = self.lineEditEmployeeSalary.text().strip()  # Salary
 
-        # Check if all inputs are provided
+
         if not e_id or not e_name or not e_user or not e_pass or not e_hire or not e_sal:
-            QMessageBox.warning(self, "Error", "Vui lòng nhập đầy đủ thông tin!")
+            QMessageBox.warning(self, "Error", "Please enter all the required information!")
             return
 
-        # Ensure ID and Salary are integers, and Salary is positive
+
         try:
             e_id = int(e_id)
             e_sal = int(e_sal)
             if e_sal <= 0:
-                raise ValueError("Lương phải lớn hơn 0!")
+                raise ValueError("Salary must be greater than 0!")
         except ValueError:
             QMessageBox.warning(self, "Error",
-                                "Employee ID và Salary phải là số nguyên hợp lệ và Lương phải lớn hơn 0.")
+                                "Employee ID and Salary must be valid integers, and Salary must be greater than 0.")
             return
 
-        # Ensure Hire Date is valid
+
         try:
-            hire_date_obj = datetime.strptime(e_hire, "%Y-%m-%d")  # Convert hire date to datetime object
-            current_date = datetime.now()  # Get the current date
-            # Calculate the difference between the current date and the hire date
-            working_years = (current_date - hire_date_obj).days // 365  # Convert days to years
+            hire_date_obj = datetime.strptime(e_hire, "%Y-%m-%d")
+            current_date = datetime.now()
+            working_years = (current_date - hire_date_obj).days // 365
         except ValueError:
-            QMessageBox.warning(self, "Error",
-                                "Ngày tuyển dụng không hợp lệ! Vui lòng nhập ngày theo định dạng YYYY-MM-DD.")
+            QMessageBox.warning(self, "Error", "Invalid hiring date! Please enter the date in the format YYYY-MM-DD.")
             return
 
         # Load existing data from JSON file
         path = "../dataset/employee_data.json"
-        if os.path.exists(path):  # Check if the file exists
+        if os.path.exists(path):
             with open(path, "r", encoding="utf-8") as f:
                 try:
-                    employees = json.load(f)  # Load existing employees
-                    if not isinstance(employees, list):  # Ensure it's a list
+                    employees = json.load(f)
+                    if not isinstance(employees, list):
                         employees = []
-                except json.JSONDecodeError:  # Handle malformed JSON
+                except json.JSONDecodeError:
                     employees = []
         else:
             employees = []
 
         # Check for duplicate Employee ID
         if any(emp.get("EmployeeId") == e_id for emp in employees):
-            QMessageBox.warning(self, "Error", f"Employee ID: {e_id} đã tồn tại!")
+            QMessageBox.warning(self, "Error", f"Employee ID: {e_id} already exists!")
             return
 
         # Create a new employee entry
@@ -229,7 +225,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             "salary": e_sal
         }
 
-        # Append the new employee to the list
+
         employees.append(new_emp)
 
         # Save updated data back to JSON
@@ -237,26 +233,26 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         with open(path, "w", encoding="utf-8") as f:
             json.dump(employees, f, indent=4, ensure_ascii=False)
 
-        QMessageBox.information(self, "Success", "Tạo nhân viên thành công!")
+        QMessageBox.information(self, "Success", "Employee created successfully!")
         self.load_employee_data()  # Reload employee table
 
     def update_employee(self):
         e_id = self.lineEditEmployeeID.text().strip()  # Get the entered Employee ID
 
         if not e_id:
-            QMessageBox.warning(self, "Error", "Vui lòng nhập Employee ID để cập nhật!")
+            QMessageBox.warning(self, "Error", "Please enter Employee ID to update!")
             return
 
         path = "../dataset/employee_data.json"
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy employee_data.json!")
+            QMessageBox.warning(self, "Error", "employee_data.json not found!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 employees = json.load(f)  # Load employees from JSON file
             except json.JSONDecodeError:
-                QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
+                QMessageBox.warning(self, "Error", "The data in the file is invalid!")
                 return
 
         updated = False
@@ -275,43 +271,43 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             # Save updated employee data back to the JSON file
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(employees, f, indent=4, ensure_ascii=False)
-            QMessageBox.information(self, "Success", "Cập nhật nhân viên thành công!")
+            QMessageBox.information(self, "Success", "Employee updated successfully!")
             self.load_employee_data()  # Reload employee data (if needed)
         else:
-            QMessageBox.warning(self, "Error", f"Không tìm thấy Employee ID: {e_id}")
+            QMessageBox.warning(self, "Error", f"Employee ID: {e_id} not found!")
 
     def delete_employee(self):
         e_id = self.lineEditEmployeeID.text().strip()  # Get Employee ID from the input
 
         if not e_id:
-            QMessageBox.warning(self, "Error", "Vui lòng nhập Employee ID để xóa!")
+            QMessageBox.warning(self, "Error", "Please enter Employee ID to delete!")
             return
 
         path = "../dataset/employee_data.json"  # Path to the JSON file
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu employee_data.json!")
+            QMessageBox.warning(self, "Error", "employee_data.json not found!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 employees = json.load(f)  # Load employee data from the JSON file
             except json.JSONDecodeError:
-                QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
+                QMessageBox.warning(self, "Error", "The data in the file is invalid!")
                 return
 
         # Ensure comparison consistency between e_id and the JSON EmployeeId
         original_length = len(employees)
 
-        # Check both integer and string possibilities for comparison
+
         employees = [emp for emp in employees if str(emp.get("EmployeeId", "")) != e_id]
 
         if len(employees) < original_length:  # If any employee was deleted
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(employees, f, indent=4, ensure_ascii=False)  # Save updated JSON
-            QMessageBox.information(self, "Success", "Xóa thành công nhân viên!")
+            QMessageBox.information(self, "Success", "Employee deleted successfully!")
             self.load_employee_data()  # Reload employee table data
         else:
-            QMessageBox.warning(self, "Error", f"Không tìm thấy Employee ID: {e_id}")
+            QMessageBox.warning(self, "Error", f"Employee ID: {e_id} not found!")
 
     def create_booking(self):
         b_id = self.lineEditBookingID.text().strip()
@@ -325,14 +321,14 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         b_date = self.lineEditBookingDate.text().strip()
 
         if not b_id or not b_name or not b_date:
-            QMessageBox.warning(self, "Error", "Booking ID, Full Name, và Booking Date không được để trống!")
+            QMessageBox.warning(self, "Error", "Booking ID, Full Name, and Booking Date cannot be empty!")
             return
 
         try:
             b_id = int(b_id)
             b_cust = int(b_cust) if b_cust else 0
         except ValueError:
-            QMessageBox.warning(self, "Error", "Booking ID và Total Customers phải là số nguyên!")
+            QMessageBox.warning(self, "Error", "Booking ID and Total Customers must be integers!")
             return
 
         path = "../dataset/reservation_data.json"
@@ -346,7 +342,7 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
             bookings = []
 
         if any(int(book.get("id", 0)) == b_id for book in bookings):
-            QMessageBox.warning(self, "Error", f"Booking ID: {b_id} đã tồn tại!")
+            QMessageBox.warning(self, "Error", f"Booking ID: {b_id} already exists!")
             return
 
         new_book = {
@@ -365,26 +361,26 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         with open(path, "w", encoding="utf-8") as f:
             json.dump(bookings, f, indent=4, ensure_ascii=False)
 
-        QMessageBox.information(self, "Success", "Tạo booking thành công!")
+        QMessageBox.information(self, "Success", "Booking created successfully!")
         self.load_booking_data()
 
     def update_booking(self):
         b_id = self.lineEditBookingID.text().strip()
 
         if not b_id:
-            QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để cập nhật!")
+            QMessageBox.warning(self, "Error", "Please enter Booking ID to update!")
             return
 
         path = "../dataset/reservation_data.json"  # Use reservation_data.json
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu reservation_data.json!")
+            QMessageBox.warning(self, "Error", "reservation_data.json not found!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 bookings = json.load(f)  # Load the booking data
             except json.JSONDecodeError:
-                QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
+                QMessageBox.warning(self, "Error", "The data in the file is invalid!")
                 return
 
         # Update the entry with matching Booking ID
@@ -406,28 +402,28 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         if updated:
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(bookings, f, indent=4, ensure_ascii=False)  # Save changes to file
-            QMessageBox.information(self, "Success", "Cập nhật booking thành công!")
+            QMessageBox.information(self, "Success", "Booking updated successfully!")
             self.load_booking_data()  # Reload table data
         else:
-            QMessageBox.warning(self, "Error", f"Không tìm thấy Booking ID: {b_id}")
+            QMessageBox.warning(self, "Error", f"Booking ID: {b_id} not found!")
 
     def delete_booking(self):
         b_id = self.lineEditBookingID.text().strip()  # Get the Booking ID from the input field
 
         if not b_id:
-            QMessageBox.warning(self, "Error", "Vui lòng nhập Booking ID để xóa!")
+            QMessageBox.warning(self, "Error", "Please enter Booking ID to delete!")
             return
 
         path = "../dataset/reservation_data.json"  # Use reservation_data.json file
         if not os.path.exists(path):
-            QMessageBox.warning(self, "Error", "Không tìm thấy dữ liệu reservation_data.json!")
+            QMessageBox.warning(self, "Error", "reservation_data.json not found!")
             return
 
         with open(path, "r", encoding="utf-8") as f:
             try:
                 bookings = json.load(f)  # Load booking data from the file
             except json.JSONDecodeError:
-                QMessageBox.warning(self, "Error", "Dữ liệu trong file không hợp lệ!")
+                QMessageBox.warning(self, "Error", "The data in the file is invalid!")
                 return
 
         # Track the original length of data and filter out the record with matching Booking ID
@@ -437,8 +433,8 @@ class ManagementEx(QMainWindow, Ui_MainWindow):
         if len(bookings) < original_length:  # Check if any record was removed
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(bookings, f, indent=4, ensure_ascii=False)  # Save updated bookings to the file
-            QMessageBox.information(self, "Success", "Xóa thành công Booking!")
+            QMessageBox.information(self, "Success", "Booking deleted successfully!")
             self.load_booking_data()  # Reload table data
         else:
-            QMessageBox.warning(self, "Error", f"Không tìm thấy Booking ID: {b_id}")
+            QMessageBox.warning(self, "Error", f"Booking ID: {b_id} not found!")
 

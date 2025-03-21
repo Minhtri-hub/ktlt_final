@@ -13,7 +13,7 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
         super().__init__()
         self.setupUi(self)
         self.setupSignalAndSlot()
-        self.pushButtonBookingTable.setEnabled(False)  # Vô hiệu hóa nút ngay từ đầu
+        self.pushButtonBookingTable.setEnabled(False)
 
     def showWindow(self):
         self.show()
@@ -21,12 +21,12 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
     def setupSignalAndSlot(self):
         self.checkBoxConfirmBooking.stateChanged.connect(self.isChecked)
         self.checkBoxReceiveMenu.stateChanged.connect(self.isChecked)
-        self.pushButtonBookingTable.clicked.connect(self.handle_booking)
+        self.pushButtonBookingTable_2.clicked.connect(self.handle_booking)
     def isChecked(self):
         if self.checkBoxConfirmBooking.isChecked():
-            self.pushButtonBookingTable.setEnabled(True)
+            self.pushButtonBookingTable_2.setEnabled(True)
         else:
-            self.pushButtonBookingTable.setEnabled(False)
+            self.pushButtonBookingTable_2.setEnabled(False)
 
 
     def handle_booking(self):
@@ -35,17 +35,14 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
             self.menu_dialog = MENUGIAODIENEX()
             self.menu_dialog.showWindow()
 
-
-        if self.checkBoxReceiveMenu.isChecked():
-            pass
         full_name = self.lineEditFullName.text().strip()
         email = self.lineEditEmail.text().strip()
         mobile = self.lineEditMobile.text().strip()
         special_note = self.lineEditSpecialNote.text().strip()
 
-        # Validate user inputs
+
         if not full_name or not email or not mobile:
-            QMessageBox.warning(self, 'Lỗi', 'Vui lòng nhập đầy đủ thông tin cần thiết.')
+            QMessageBox.warning(self, 'Error', 'Please enter all the required information.')
             return
 
         # Prepare the booking file path
@@ -59,14 +56,12 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
                 try:
                     book_list = json.load(f)
                     if isinstance(book_list, list):
-                        # Find the maximum existing ID in the booking list
                         max_id = max((booking["id"] for booking in book_list if "id" in booking), default=0)
                     else:
                         book_list = []
                 except json.JSONDecodeError:
                     book_list = []
 
-        # Create a new booking entry
         current_datetime = datetime.now()
         new_booking = {
             "id": max_id + 1,  # Increment the maximum ID
@@ -82,7 +77,7 @@ class BookingInformationEx(QMainWindow, Ui_BookingInformation):
             json.dump(book_list, json_file, indent=4, ensure_ascii=False)
 
         # Notify the user of successful booking
-        QMessageBox.information(self, 'Thông báo', 'Đăng ký thành công!')
-        QMessageBox.information(self, 'Thông báo',
-                                f'Đã đặt thành công vào ngày {current_datetime.strftime("%Y-%m-%d")} lúc {current_datetime.strftime("%H:%M:%S")}!')
+        QMessageBox.information(self, 'Notification', 'Registration successful!')
+        QMessageBox.information(self, 'Notification',
+                                f'Successfully booked on {current_datetime.strftime("%Y-%m-%d")} at {current_datetime.strftime("%H:%M:%S")}!')
         self.close()

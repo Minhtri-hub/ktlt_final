@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>718</width>
+    <width>719</width>
     <height>848</height>
    </rect>
   </property>
@@ -1232,7 +1232,7 @@ background-color: rgb(239, 236, 212);</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../../ADMIN/Downloads/lotus_2982182 (1).png</pixmap>
+      <pixmap>../images/lotus_2982182 (1).png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -1245,7 +1245,7 @@ background-color: rgb(239, 236, 212);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>718</width>
+     <width>719</width>
      <height>26</height>
     </rect>
    </property>

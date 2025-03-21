@@ -68,7 +68,7 @@ class SignupEx(Ui_MainWindow):
         with open(json_file_path, "w", encoding="utf-8") as json_file:
             json.dump(data_list, json_file, indent=4, ensure_ascii=False)
 
-        QMessageBox.information(self.MainWindow, 'Thông báo', 'Đăng ký thành công!')
-        QMessageBox.information(self.MainWindow, 'Thông báo', 'Đã lưu thành công, vui lòng đăng nhập lại')
+        QMessageBox.information(self.MainWindow, 'Notification', 'Registration successful!')
+        QMessageBox.information(self.MainWindow, 'Notification', 'Saved successfully, please log in again')
 
         self.MainWindow.close()

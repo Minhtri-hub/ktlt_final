@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(718, 848)
+        MainWindow.resize(719, 848)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(parent=self.centralwidget)
@@ -410,12 +410,12 @@ class Ui_MainWindow(object):
         self.label_12.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(239, 236, 212);")
         self.label_12.setText("")
-        self.label_12.setPixmap(QtGui.QPixmap("C:\\Users\\nguye\\PycharmProjects\\ktlt_final\\UiBooking\\../../../../ADMIN/Downloads/lotus_2982182 (1).png"))
+        self.label_12.setPixmap(QtGui.QPixmap("C:\\Users\\nguye\\PycharmProjects\\ktlt_final\\UiBooking\\../images/lotus_2982182 (1).png"))
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName("label_12")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 718, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 719, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)

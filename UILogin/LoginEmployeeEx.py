@@ -18,7 +18,7 @@ class LoginEmployeeEx(Ui_MainWindow):
         password = self.lineEditPasswordEmployee.text().strip()
 
         if not self.employees:
-            QMessageBox.warning(self.MainWindow, "Lỗi", "Không có dữ liệu nhân viên!")
+            QMessageBox.warning(self.MainWindow, "Error", "No employee data!")
             return
 
         user = None
@@ -30,10 +30,10 @@ class LoginEmployeeEx(Ui_MainWindow):
         if user:
             QMessageBox.information(
                 self.MainWindow,
-                "Thành công",
-                f"Đăng nhập thành công! Chào mừng {user.get('EmployeeName')}"
+                "Success",
+                f"Login successful! Welcome {user.get('EmployeeName')}"
             )
-            print(f"Đăng nhập thành công! Chào mừng {user.get('EmployeeName')}")
+            print(f"Login successful! Welcome {user.get('EmployeeName')}")
 
             self.booking_management = ManagementEx()
             self.booking_management.showWindow()

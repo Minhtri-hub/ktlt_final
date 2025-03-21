@@ -13,7 +13,7 @@ class LoginCustomerEx(Ui_MainWindow):
         super().setupUi(MainWindow)
         self.MainWindow = MainWindow
         if not self.customers:
-            QMessageBox.critical(self.MainWindow,"Lỗi","Không có dữ liệu khách hàng. Kiểm tra file customer_data.json!")
+            QMessageBox.critical(self.MainWindow, "Error", "No customer data found. Please check the customer_data.json file!")
             return
         self.setupSignalAndSlot()
         self.checkboxisChecked()
@@ -30,7 +30,7 @@ class LoginCustomerEx(Ui_MainWindow):
             username = self.lineEditUsername.text().strip()
             password = self.lineEditPassword.text().strip()
             if not self.customers:
-                QMessageBox.warning(self.MainWindow,"Lỗi","Không có dữ liệu khách hàng!")
+                QMessageBox.warning(self.MainWindow, "Error", "No customer data!")
                 return
             user = None
             for customer in self.customers:
@@ -38,13 +38,13 @@ class LoginCustomerEx(Ui_MainWindow):
                     user = customer
                     break
             if user:
-                QMessageBox.information(self.MainWindow,"Thành công",f"Đăng nhập thành công! Chào mừng {user.get('name')}")
-                print(f"Đăng nhập thành công! Chào mừng {user.get('name')}")
+                QMessageBox.information(self.MainWindow, "Success", f"Login successful! Welcome {user.get('name')}")
+                print(f"Login successful! Welcome {user.get('name')}")
                 self.checktable = CheckTableEx()
                 self.checktable.show()
                 self.MainWindow.close()
             else:
-                QMessageBox.warning(self.MainWindow,"Lỗi","Tên đăng nhập hoặc mật khẩu không đúng!")
+                QMessageBox.warning(self.MainWindow, "Error", "Username or password is incorrect!")
 
     def handle_signup(self):
         from UILogin.SignupEx import SignupEx
