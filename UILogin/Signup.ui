@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>60</y>
+      <x>60</x>
+      <y>80</y>
       <width>661</width>
       <height>501</height>
      </rect>
@@ -70,7 +70,7 @@ background-color: rgb(239, 236, 212);</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>C:/Users/ADMIN/AppData/Local/Temp/1baae3cc-5385-4d86-bc85-6bef75179ec4_ktlt_final.zip.ec4/ktlt_final/UILogin/lotus_2982182 (1).png</pixmap>
+      <pixmap>../../../../ADMIN/AppData/Local/Temp/1baae3cc-5385-4d86-bc85-6bef75179ec4_ktlt_final.zip.ec4/ktlt_final/UILogin/lotus_2982182 (1).png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -107,8 +107,17 @@ background-color: rgb(239, 236, 212);</string>
        <string notr="true">color: rgb(143, 143, 143);
 background-color: rgb(255, 255, 255);</string>
       </property>
+      <property name="inputMask">
+       <string/>
+      </property>
       <property name="text">
-       <string>* Username</string>
+       <string notr="true"/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
+      </property>
+      <property name="placeholderText">
+       <string>*Username</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditPass">
@@ -131,6 +140,9 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
        <string>* Pass</string>
       </property>
      </widget>
@@ -154,6 +166,9 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
        <string>* Email</string>
       </property>
      </widget>
@@ -177,6 +192,9 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
        <string>* Phone Number</string>
       </property>
      </widget>
@@ -200,6 +218,9 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
        <string>* Full Name</string>
       </property>
      </widget>
@@ -244,9 +265,9 @@ color: rgb(255, 255, 255);
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>-10</x>
         <y>0</y>
-        <width>191</width>
+        <width>201</width>
         <height>321</height>
        </rect>
       </property>
@@ -254,7 +275,7 @@ color: rgb(255, 255, 255);
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\images\CHAY_Menu-Alacarte_T5.2024-2.jpg</pixmap>
+       <pixmap>../images/Create account.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -263,10 +284,10 @@ color: rgb(255, 255, 255);
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>4</x>
-        <y>140</y>
-        <width>181</width>
-        <height>20</height>
+        <x>10</x>
+        <y>130</y>
+        <width>171</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -287,7 +308,7 @@ color: rgb(255, 255, 255);
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>18</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

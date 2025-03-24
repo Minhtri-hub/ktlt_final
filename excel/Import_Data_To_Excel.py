@@ -1,4 +1,8 @@
-[
+import pandas as pd
+import os
+
+# Dữ liệu JSON
+data = [
     {
         "id": 1,
         "full_name": "Nguyễn Quách Minh Trí",
@@ -88,3 +92,17 @@
         "date": "02/05/2025"
     }
 ]
+
+# Chuyển dữ liệu JSON thành DataFrame
+df = pd.DataFrame(data)
+
+# Đảm bảo file được ghi ra thành CSV
+file_path = os.path.abspath("reservations.csv")
+try:
+    # Xuất dữ liệu ra file CSV
+    df.to_csv(file_path, index=False, encoding="utf-8-sig", sep=',')  # Sử dụng dấu phẩy làm phân cách
+    print(f"Dữ liệu đã được xuất ra file '{file_path}' với từng dữ liệu tách vào ô riêng trong Excel.")
+except PermissionError:
+    print(f"Không thể ghi file. Hãy chắc chắn rằng '{file_path}' không bị mở hoặc bị khóa!")
+except Exception as e:
+    print(f"Lỗi xảy ra: {e}")

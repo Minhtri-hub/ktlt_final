@@ -45,12 +45,12 @@
         "salary": 7000000
     },
     {
-        "EmployeeId": 6,
-        "EmployeeName": "Erik",
-        "EmployeeUsername": "e",
+        "EmployeeId": 7,
+        "EmployeeName": "MinhHoàng",
+        "EmployeeUsername": "nhi01",
         "EmployeePass": "123",
-        "hire_date": "2024-12-03",
+        "hire_date": "2025-03-22",
         "working_years": 0,
-        "salary": "5.000.000"
+        "salary": "100"
     }
 ]

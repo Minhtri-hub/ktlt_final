@@ -18,10 +18,18 @@
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>260</y>
+      <y>100</y>
       <width>471</width>
-      <height>401</height>
+      <height>491</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka Text Semibold</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="whatsThis">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -36,13 +44,13 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>120</y>
+       <y>220</y>
        <width>311</width>
        <height>241</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(60, 60, 60);
+      <string notr="true">background-color: rgb(191, 211, 182)
 </string>
      </property>
      <property name="title">
@@ -65,6 +73,10 @@ color: rgb(255, 255, 255);
       </property>
       <property name="text">
        <string>Log in</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../images/enter (1).png</normaloff>../images/enter (1).png</iconset>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditPasswordEmployee">
@@ -132,7 +144,7 @@ background-color: rgb(255, 255, 255);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\images\next.png</pixmap>
+       <pixmap>../images/next.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -151,7 +163,7 @@ background-color: rgb(255, 255, 255);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\images\user (1).png</pixmap>
+       <pixmap>../images/user (1).png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -170,7 +182,7 @@ background-color: rgb(255, 255, 255);</string>
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\images\padlock.png</pixmap>
+       <pixmap>../images/padlock.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -181,7 +193,7 @@ background-color: rgb(255, 255, 255);</string>
      <property name="geometry">
       <rect>
        <x>190</x>
-       <y>20</y>
+       <y>110</y>
        <width>91</width>
        <height>91</height>
       </rect>
@@ -190,10 +202,35 @@ background-color: rgb(255, 255, 255);</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>C:\Users\nguye\PycharmProjects\ktlt_final\images\user.png</pixmap>
+      <pixmap>../images/user.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>471</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Text Semibold</family>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 54, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>

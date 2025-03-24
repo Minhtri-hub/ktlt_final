@@ -36,6 +36,11 @@
                 "id": 4,
                 "time": "5:00 PM",
                 "people": 25
+            },
+            {
+                "id": 8,
+                "time": "8:00 PM",
+                "people": 3
             }
         ]
     },
@@ -65,6 +70,16 @@
                 "id": 7,
                 "time": "4:00 PM",
                 "people": 1
+            }
+        ],
+        "private": []
+    },
+    "02/05/2025": {
+        "counter": [
+            {
+                "id": 9,
+                "time": "10:30 PM",
+                "people": 10
             }
         ],
         "private": []

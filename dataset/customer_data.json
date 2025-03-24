@@ -78,5 +78,13 @@
         "email": "g",
         "phone_number": "g",
         "name": "gg"
+    },
+    {
+        "id": 11,
+        "username": "hnhi46",
+        "password": "1234",
+        "email": "hnhi46@gmail.com",
+        "phone_number": "09154222333",
+        "name": "Nguyễn Huỳnh Yến Nhi"
     }
 ]
